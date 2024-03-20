@@ -506,13 +506,13 @@ export default {
     initJobChar() { 
       this.jobEcharInstance = this.$echarts.init(this.$refs.job)
     },
-   async getJobData() {
-     let { data } = await this.$axios.post(`http://localhost:9107/service/servicedecisioncenter/MinZuDangPai/queryTitle`)
+    getJobData() {
+     console.log(this.jobEcharData[0].LEVEL,"!!!")
      const jobData = []
-      for (let i = 0; i < data.t.length; i++) {
+      for (let i = 0; i < this.jobEcharData.length; i++) {
         let obj = {}
-        obj.LEVEL = data.t[i].LEVEL
-        obj.count = data.t[i].count
+        obj.LEVEL = this.jobEcharData[i].LEVEL
+        obj.count = this.jobEcharData[i].count
         jobData.push(obj)
      }
   

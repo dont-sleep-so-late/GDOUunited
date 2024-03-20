@@ -68,7 +68,8 @@
         </li>
         <li style="width: 18%">
           <div class="box">
-            <div class="tit">两代表一委员(总数:{{this.sum8}})</div>
+            <!-- <div class="tit">两代表一委员(总数:{{this.sum8}})</div> -->
+            <div class="tit">两代表一委员</div> 
             <div class="boxnav" style="height: 172px;">
               <ul style="display: flex; flex-wrap: wrap;height: 100%;">
                 <li style="height: 50%; width: 48%; text-align: center">
@@ -328,7 +329,7 @@ export default {
         },
         yAxis: {
           type: "category",
-          data:["民主党派","少数民族","无党派人士","留学归国人员"],
+          data: this.objects,
           axisLabel: {
             inside: true,
             color: "#fff",
@@ -866,11 +867,14 @@ return value; // 如果文字长度未超过最大字符数，则直接返回原
     doCallDepartmentData(department) {
       callDepartment(department).then(res => {
           let result = res
-          this.workArr=[],
+        this.workArr = [],
+          this.objects = [],
+          this.workPerson = [],
           this.workObejct = result.res1.t
           for (let i in this.workObejct){
-          this.workArr.push(this.workObejct[i])
+            this.workArr.push(this.workObejct[i])
         }
+        Object.keys(this.workObejct).forEach(key => this.objects.push(key))
         this.get_myChart1Data()
         this.nonPartyInfo = result.res2.t
         this.sum2 = result.res2.t[3]?.total
@@ -907,11 +911,12 @@ return value; // 如果文字长度未超过最大字符数，则直接返回原
       callAll().then(res => {
       let result = res
       //图表1--统战工作对象
-      this.workObejct = result.res1.t   
+        this.workObejct = result.res1.t   
       for (let i in this.workObejct){
         this.workArr.push(this.workObejct[i])
-      }
-      this.get_myChart1Data()
+        }
+        Object.keys(this.workObejct).forEach(key => this.objects.push(key))
+      this.get_myChart1Data() 
       //图表2--党外干部
       this.nonPartyInfo = result.res2.t
       this.sum2 = result.res2.t[3]?.total
@@ -936,7 +941,8 @@ return value; // 如果文字长度未超过最大字符数，则直接返回原
       this.get_myChart7Data()*/
       //图表7--两代表
       this.liangDaiBiao = result.res7.t
-      this.sum8=this.liangDaiBiao.count[0]
+        this.sum8 = this.liangDaiBiao.count[0]
+      console.log(this.liangDaiBiao)
       this.npcCount = this.liangDaiBiao.count[1]
       this.mpcCount = this.liangDaiBiao.count[2]
       this.PcpccCount = this.liangDaiBiao.count[3]

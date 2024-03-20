@@ -53,7 +53,7 @@
 <!-- 级别分布 -->
 <div class="box"
              style="overflow: hidden;">
-          <div class="tit">无党派级别分布(总数:27)</div>
+          <div class="tit">无党派级别分布(总数:{{ sum2 }})</div>
           <div class="boxnav"
                style="height: 150px">
             <div style="float: left; width: 450px; height: 140px"
@@ -447,7 +447,6 @@ export default {
         this.echart12List = result.res12.t
         this.echart12List.forEach((item) => this.echart12data.push(item.count))
         this.echart12List.forEach((item)=> this.echart12dataAxis.push(item.LEVEL))
-        console.log("1212121212",result)
         //留学时间分布
         this.echart13data = []
         this.echart13dataAxis = []
@@ -1239,12 +1238,12 @@ export default {
 //   });
 // },
 init_myChart12() {
-  let dataAxis = [
-    { name: '省级', value: '2' },
-    { name: '市级', value: '20' },
-    { name: '校级', value: '6' }
-  ];
-
+  let dataAxis =[
+    { value: this.echart12data[0], name: this.echart12dataAxis[0] },
+    { value: this.echart12data[1], name: this.echart12dataAxis[1] },
+    { value: this.echart12data[2], name: this.echart12dataAxis[2] }
+  ]
+  console.log(this.echart12List[0],'@@@')
   var myChart12 = this.$echarts.init(document.getElementById("echart12"));
 
   var xAxisData = dataAxis.map(function(item) {

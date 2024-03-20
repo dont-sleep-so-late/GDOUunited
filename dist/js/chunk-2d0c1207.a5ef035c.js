@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0c1207"],{"455e":function(n,c,e){"use strict";e.r(c);var t=function(){var n=this,c=n._self._c;return c("div",[n._v(" 添加学生 ")])},u=[],s={},a=s,i=e("2877"),o=Object(i["a"])(a,t,u,!1,null,"bfd8beca",null);c["default"]=o.exports}}]);

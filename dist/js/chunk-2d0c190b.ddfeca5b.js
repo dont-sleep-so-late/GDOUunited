@@ -1,1 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0c190b"],{"471c":function(n,c,u){"use strict";u.r(c);var t=function(){var n=this,c=n._self._c;return c("div",[n._v(" 学生列表 ")])},e=[],l={},s=l,i=u("2877"),o=Object(i["a"])(s,t,e,!1,null,null,null);c["default"]=o.exports}}]);

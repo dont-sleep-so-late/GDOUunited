@@ -1,11 +1,14 @@
 <template>
   <div class="head">
+   <div class="left">
     <div class="logo">
       <img src="../../assets/img/logo.png" alt="">
     </div>
-    <div class="title">
+    <div class="tit">
       <img src="../../assets/img/bigSummary/海大统战云白字.png" alt="">
     </div>
+   </div>
+   <div class="right">
     <div class="uesrinfo">
       <img src="../../assets/img/bigSummary/用户-圆.png" alt="">
       <p>当前用户：{{ user }}</p>
@@ -22,6 +25,7 @@
       <img src="../../assets/img/bigSummary/退出.png" alt="">
       <p>退出</p>
     </div>
+   </div>
   </div>
 </template>
 
@@ -66,13 +70,24 @@ export default {
 
 
 <style scoped>
+.head{
+  width: 100%;
+}
+.left{
+  float: left;
+  margin-left: 50px;
+}
+.right{
+  float: right;
+  margin-right: 50px;
+  display: flex;
+}
 /* 顶部 */
 .logo {
-  position: relative;
-  left: 70px;
-  top: 15px;
-  width: 100px;
+  float: left;
+  width: 70px;
   height: 100px;
+  line-height: 100px;
 
 }
 
@@ -81,72 +96,59 @@ export default {
   height: 70px;
 }
 
-.title {
-  position: relative;
-  right: 420px;
-  bottom: 75px;
+.tit {
+  float: left;
   width: 255px;
-  height: 55px;
-
+  height: 70px;
+  line-height: 100px;
 }
 
-.title img {
+.tit img {
   width: 255px;
   height: 55px;
 }
 
 .uesrinfo {
-  position: relative;
-  left: 1095px;
-  bottom: 120px;
-  width: 300px;
+  width: 200px;
   height: 24px;
+  line-height: 100px;
 }
 
-.notice {
-  position: relative;
-  left: 1225px;
-  bottom: 143px;
+/* .notice {
   width: 100px;
   height: 24px;
   cursor: pointer;
-}
+} */
 
 .help {
-  position: relative;
-  left: 1305px;
-  bottom: 145px;
   width: 100px;
   height: 24px;
   cursor: pointer;
+  line-height: 100px;
 }
 
 
 .exit {
-  position: relative;
-  left: 1420px;
-  bottom: 169px;
   width: 68px;
   height: 24px;
   cursor: pointer;
+  line-height: 100px;
 }
 
 .help img,
 .notice img,
 .exit img,
 .uesrinfo img {
-  position: absolute;
-  bottom: 3px;
   width: 24px;
   height: 24px;
+  float: left;
+  margin-top: 38px
 }
 
 .help p,
 .notice p,
 .exit p,
 .uesrinfo p {
-  position: absolute;
-  left: 35px;
   font-size: 16px;
   font-weight: 400;
   color: rgba(255, 255, 255, 1);

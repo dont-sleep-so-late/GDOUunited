@@ -148,7 +148,7 @@
 </template>
 
 <script>
-import { callDepartment } from "../api/college/frontParty"
+import { callDepartment } from "../api/college/frontParty";
 import SchoolMap from './schoolMap.vue';
 
 export default {

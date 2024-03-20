@@ -10,7 +10,7 @@ export async function callAll() {
     let { data: res7 } = await axios.post("http://localhost:9107/service/servicedecisioncenter/FrontPage/liangDaiBiao")
     let { data: res8 } = await axios.post("http://localhost:9107/service/servicedecisioncenter/FrontPage/queryAward")
     let { data: res9 } = await axios.post("http://localhost:9107/service/servicedecisioncenter/FrontPage/politics")
-    return { res1, res2, res3, res4, res5, res6, res7, res8,res9 }
+    return { res1, res2, res3, res4, res5, res6, res7, res8, res9 }
 }
 
 export async function callDepartment(department) {

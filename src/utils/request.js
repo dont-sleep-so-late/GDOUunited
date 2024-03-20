@@ -8,7 +8,6 @@ const service = axios.create({
   // baseURL: process.env.VUE_APP_BASE_API, // api 的 base_url
   baseURL: 'http://localhost:8222',
   timeout: 20000, // 请求超时时间
-  // headers: { 'Content-Type': 'application/json;charset=utf-8' },
 })
 
 // request拦截器

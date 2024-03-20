@@ -1,33 +1,25 @@
 <template>
-  <div class="content" :style="`zoom:${zoom}`">
+  <div class="content">
     <Navbar />
     <AppMain />
   </div>
 </template>
-
 <script>
-import AppMain from './AppMain.vue'
-import Navbar from './Navbar.vue'
+import autofit from 'autofit.js';
+import AppMain from './AppMain.vue';
+import Navbar from './Navbar.vue';
+
 
 export default {
   components: { Navbar, AppMain },
   name: 'AppMainIndex',
-  data() {
-    return {
-      zoom: '1'
-    }
+  mounted() {
+    autofit.init()
   },
-  beforeMount() {
-    this.setZoom()
+  beforeUnmount() {
+    autofit.off()
   },
-  methods: {
-    setZoom() {
-      if (window.innerWidth >= 1920) {
-        this.zoom = 1.25;
-      } else
-        this.zoom = 1;
-    }
-  },
+
 }
 </script>
 
@@ -41,7 +33,7 @@ export default {
   background: url(../../assets/img/IndexImg/13.gif) no-repeat;
   background-size: 100%;
   width: 100%;
-  background-position: 0 0;
   height: 100%;
+  zoom: 1.25;
 }
 </style>

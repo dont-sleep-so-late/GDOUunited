@@ -1,48 +1,48 @@
 <template>
-  <div class="mainbox content">
-    <ul class="clearfix nav1">
-      <li style="width: 22%">
-        <div class="box">
-          <div class="tit">统战工作对象</div>
-          <div class="boxnav" style="height: 307px">
-            <div style="float: left; width: 100%; height: 305px" ref="echart1"></div>
-          </div>
-        </div>
-        <div class="box">
-          <div class="tit">党外干部(总数:36)</div>
-          <div class="boxnav" style="height: 260px">
-            <div style="float: left; width: 100%; height: 260px" id="echart2"></div>
-          </div>
-        </div>
-      </li>
-      <li style="width: 42%">
-        <div class="box">
-          <div class="boxnav mapc" style="height: 655px; position: relative">
-            <div class="map" id="map">
-              <SchoolMap />
+    <div class="mainbox content">
+      <ul class="clearfix nav1">
+        <li style="width: 22%">
+          <div class="box">
+            <div class="tit">统战工作对象</div>
+            <div class="boxnav" style="height: 307px">
+              <div style="float: left; width: 100%; height: 305px" ref="echart1"></div>
             </div>
           </div>
-        </div>
-      </li>
-      <li style="width: 18%">
-        <div class="box">
-          <div class="tit">民主党派(总数:{{ this.sum3 }})</div>
-          <div class="boxnav" style="height: 172px">
-            <div style="float: left; width: 100%; height: 174px" id="echart3"></div>
+          <div class="box">
+            <div class="tit">党外干部</div>
+            <div class="boxnav" style="height: 260px">
+              <div style="float: left; width: 100%; height: 260px" id="echart2"></div>
+            </div>
           </div>
-        </div>
-        <div class="box">
-          <div class="tit">少数民族(总数:{{ this.sum5 }})</div>
-          <div class="boxnav" style="height: 172px">
-            <div style="float: left; width: 100%; height: 164px" id="echart5"></div>
+        </li>
+        <li style="width: 42%">
+          <div class="box">
+            <div class="boxnav mapc" style="height: 655px; position: relative">
+              <div class="map" id="map">
+                <SchoolMap />
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="box">
-          <div class="tit">无党派、留学人员(总数:{{ this.sum4 }})</div>
-          <div class="boxnav" style="height: 172px">
-            <div style="float: left; width: 100%; height: 164px" id="echart4"></div>
+        </li>
+        <li style="width: 18%">
+          <div class="box">
+            <div class="tit">民主党派(总数:{{this.sum3}})</div>
+            <div class="boxnav" style="height: 172px">
+              <div style="float: left; width: 100%; height: 174px" id="echart3"></div>
+            </div>
           </div>
-          <!--<div class="boxnav" style="height: 172px">
+          <div class="box">
+            <div class="tit">少数民族(总数:{{this.sum5}})</div>
+            <div class="boxnav" style="height: 172px">
+              <div style="float: left; width: 100%; height: 164px" id="echart5"></div>
+            </div>
+          </div>
+          <div class="box">
+            <div class="tit">无党派、留学人员(总数:{{this.sum4}})</div>
+            <div class="boxnav" style="height: 172px">
+              <div style="float: left; width: 100%; height: 164px" id="echart4"></div>
+            </div>
+            <!--<div class="boxnav" style="height: 172px">
               <ul style="display: flex; flex-wrap: wrap;height: 100%;">
                 <li style="height: 50%; width: 48%; text-align: center;">
                   <div class="minibox color1">
@@ -64,219 +64,217 @@
                 </li>
               </ul>
             </div>-->
-        </div>
-      </li>
-      <li style="width: 18%">
-        <div class="box">
-          <div class="tit">两代表一委员(总数:{{ this.sum8 }})</div>
-          <div class="boxnav" style="height: 172px;">
-            <ul style="display: flex; flex-wrap: wrap;height: 100%;">
-              <li style="height: 50%; width: 48%; text-align: center">
-                <div style="padding:5px 0" class="minibox color1">
-                  <span>全国人大代表:</span>
-                  <p>{{ npcCount }}</p>
-                  <!-- <p>{{ npcArr }}</p> -->
-                </div>
-              </li>
-              <li style="height: 50%; width: 48%; margin-left: 4%; text-align: center">
-                <div style="padding:5px 0" class="minibox color1">
-                  <span>市人大代表:</span>
-                  <p>{{ mpcCount }}</p>
-                  <!-- <p>{{ mpcArr }}</p> -->
-                </div>
-              </li>
-              <li style=" height: 50%; width: 48%;text-align: center;">
-                <div style="padding:5px 0" class="minibox color4">
-                  <span>省级政协委员:</span>
-                  <p>3</p>
-                  <!-- <p>{{ PcpccCount }}</p> -->
-                  <!-- <p>{{ PcpccArr }}</p> -->
-                </div>
-              </li>
-              <li style="height: 50%; width: 48%; margin-left: 4%; text-align: center">
-                <div style="padding:5px 0" class="minibox color2">
-                  <span>市级政协委员:</span>
-                  <p>6</p>
-                  <!-- <p>{{ McpccCount }}</p> -->
-                  <!-- <p> {{  McpccArr}}</p> -->
-                </div>
-              </li>
-            </ul>
           </div>
-        </div>
-        <div class="box">
-          <div class="tit">获奖情况(总数:21)</div>
-          <!-- <div class="tit">获奖情况(总数:{{this.sum9}})</div> -->
-          <div class="boxnav" style="height: 172px">
-            <ul style="display: flex; flex-wrap: wrap;height: 100%;">
-              <li style="height: 50%; width: 100%; text-align: center">
-                <div class="minibox color1">
-                  <span>国家级</span>
-                  <div>1</div>
-                  <!-- <div>{{this.AwardCountryLevel[0]}}</div> -->
-                </div>
-              </li>
-              <li style="height: 50%; width: 100%; text-align: center">
-                <div class="minibox color4">
-                  <span>省级</span>
-                  <div>20</div>
-                  <!-- <div>{{this.AwardProvincialLevel[0]}}</div> -->
-                </div>
-              </li>
-            </ul>
+        </li>
+        <li style="width: 18%">
+          <div class="box">
+            <div class="tit">两代表一委员(总数:{{this.sum8}})</div>
+            <div class="boxnav" style="height: 172px;">
+              <ul style="display: flex; flex-wrap: wrap;height: 100%;">
+                <li style="height: 50%; width: 48%; text-align: center">
+                  <div style="padding:5px 0" class="minibox color1">
+                    <span>全国人大代表:</span>
+                    <p>{{ npcCount }}</p>
+                    <!-- <p>{{ npcArr }}</p> -->
+                  </div>
+                </li>
+                <li style="height: 50%; width: 48%; margin-left: 4%; text-align: center">
+                  <div style="padding:5px 0" class="minibox color1">
+                    <span>市人大代表:</span>
+                    <p>{{ mpcCount}}</p>
+                    <!-- <p>{{ mpcArr }}</p> -->
+                  </div>
+                </li>
+                <li style=" height: 50%; width: 48%;text-align: center;">
+                  <div style="padding:5px 0" class="minibox color4">
+                    <span>省级政协委员:</span>
+                    <p>3</p>
+                    <!-- <p>{{ PcpccCount }}</p> -->
+                    <!-- <p>{{ PcpccArr }}</p> -->
+                  </div>
+                </li>
+                <li style="height: 50%; width: 48%; margin-left: 4%; text-align: center">
+                  <div style="padding:5px 0" class="minibox color2">
+                    <span>市级政协委员:</span>
+                    <p>6</p>
+                    <!-- <p>{{ McpccCount }}</p> -->
+                    <!-- <p> {{  McpccArr}}</p> -->
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <div class="box">
-          <div class="tit">参政议政情况(总数:{{ this.sum10 }})</div>
-          <div class="boxnav" style="height: 172px">
-            <div style="float: left; width: 100%; height: 172px" id="echart10"></div>
+          <div class="box">
+            <div class="tit">获奖情况(总数:{{this.sum9}})</div>
+            <!-- <div class="tit">获奖情况(总数:{{this.sum9}})</div> -->
+            <div class="boxnav" style="height: 172px">
+              <ul style="display: flex; flex-wrap: wrap;height: 100%;">
+                <li style="height: 50%; width: 100%; text-align: center">
+                  <div class="minibox color1">
+                    <span>国家级</span>
+                    <div>{{this.AwardCountryLevel[0]}}</div>
+                  </div>
+                </li>
+                <li style="height: 50%; width: 100%; text-align: center">
+                  <div class="minibox color4">
+                    <span>省级</span>
+                    <div>{{this.AwardProvincialLevel[0]}}</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
+          <div class="box">
+            <div class="tit">参政议政情况(总数:{{this.sum10}})</div>
+            <div class="boxnav" style="height: 172px">
+              <div style="float: left; width: 100%; height: 172px" id="echart10"></div>
+            </div>
+          </div>
 
-        <!--<div class="box">
+          <!--<div class="box">
             <div class="tit">港澳台(总数:{{this.sum7}})</div>
             <div class="boxnav" style="height: 142px">
               <div style="float: left; width: 100%; height: 142px" id="echart7"></div>
             </div>
           </div>-->
-      </li>
-    </ul>
-  </div>
+        </li>
+      </ul>
+    </div>
 </template>
 
 <script>
+import { callAll, callDepartment } from '../api/college/dataIndex';
 import SchoolMap from "./schoolMap.vue";
-import { callDepartment, callAll } from '../api/college/dataIndex';
 export default {
   name: "myDataIndex",
   components: { SchoolMap },
-  data() {
-    return {
+  data(){
+    return{
       //统战工作对象数组
-      myChart1: null,
-      workArr: [],
-      objects: [],
-      workObejct: [],
+        myChart1:null,
+        workArr:[],
+        objects:[],
+        workObejct:[],    
       //党外干部数组
-      myChart2: null,
-      nonPartyInfo: [],
-      sum2: 36,
+        myChart2:null,
+        nonPartyInfo:[],
+        sum2:36,
       //民主党派数组
-      myChart3: null,
-      parties: [],
-      memberShip: [],
-      sum3: null,
-      //无党派数组
-      myChart4: null,
-      nonmemberShip: [],
-      sum4: null,
-      //少数民族数组
-      myChart5: null,
-      nationalShip: [],
-      sum5: null,
-      //港澳台数组
-      /* 
-        myChart7:null,
-        area:[],
-        areatotal:[],
-        sum7:null,
-        */
+        myChart3:null,
+        parties:[],
+        memberShip:[],
+        sum3:null,
+        //无党派数组
+        myChart4:null,
+        nonmemberShip:[],        
+        sum4:null,
+        //少数民族数组
+        myChart5:null,
+        nationalShip:[],
+        sum5:null,
+        //港澳台数组
+        /* 
+          myChart7:null,
+          area:[],
+          areatotal:[],
+          sum7:null,
+          */
       //两代表一委员数组
-      myChart8: null,
-      liangDaiBiao: [],
-      sum8: null,
-      //npc全国人大代表 mpc市人大代表  PCPCC 省政协 MCPCC市政协
-      npc: [],
-      npcCount: null,
-      npcArr: '',
-      mpc: [],
-      mpcCount: null,
-      mpcArr: '',
-      Pcpcc: [],
-      PcpccCount: null,
-      PcpccArr: '',
-      Mcpcc: [],
-      McpccCount: null,
-      McpccArr: '',
-      //获奖情况数组
-      myChart9: null,
-      AwardCountryLevel: [],
-      AwardProvincialLevel: [],
-      sum9: null,
-      //参政议政情况
-      sum10: null,
-      countList: [],
-      yearList: [],
+        myChart8:null,
+        liangDaiBiao:[],
+        sum8:null,
+        //npc全国人大代表 mpc市人大代表  PCPCC 省政协 MCPCC市政协
+        npc:[],
+        npcCount:null,
+        npcArr:'',
+        mpc:[],
+        mpcCount:null,
+        mpcArr:'',
+        Pcpcc:[],
+        PcpccCount:null,
+        PcpccArr:'',
+        Mcpcc:[],
+        McpccCount:null,
+        McpccArr:'',
+        //获奖情况数组
+        myChart9:null,
+        AwardCountryLevel:[],
+        AwardProvincialLevel:[],
+        sum9:null,
+        //参政议政情况
+        sum10:null  ,
+        countList:[],
+        yearList:[],
     }
   },
 
-  watch: {
+  watch:{
     //监听事件对象
-    objects: {
-      deep: true,
-      handler() {
+    objects:{
+      deep:true,
+      handler(){
         this.init_myChart1();
       }
     },
-    workObejct: {
-      deep: true,
-      handler() {
-        this.init_myChart1();
+    workObejct:{
+      deep:true,
+      handler(){
+          this.init_myChart1();
       }
     },
-    nonPartyInfo: {
-      deep: true,
-      handler(newVal, oldVal) {
+    nonPartyInfo:{
+      deep:true,
+      handler(newVal, oldVal){
         this.init_myChart2();
       }
     },
-    nonmemberShip: {
-      deep: true,
-      handler(newVal, oldVal) {
+    nonmemberShip:{
+      deep:true,
+      handler(newVal, oldVal){
         this.init_myChart4();
       }
 
     },
-    nationalShip: {
-      deep: true,
-      handler(newVal, oldVal) {
+    nationalShip:{
+      deep:true,
+      handler(newVal, oldVal){
         this.init_myChart5();
       }
     },
-    parties: {
-      deep: true,
-      handler() {
-        this.init_myChart3();
+    parties:{
+      deep:true,
+      handler(){
+          this.init_myChart3();
       }
     },
-    memberShip: {
-      deep: true,
-      handler() {
-        this.init_myChart3();
+    memberShip:{
+      deep:true,
+      handler(){
+          this.init_myChart3();
       }
     },
-    /*area:{
-     deep:true,
-     handler(){
-         this.init_myChart7();
-     }
-   },
-    areatotal:{
-     deep:true,
-     handler(){
-         this.init_myChart7();
-     }
-   },*/
-    countList: {
-      deep: true,
-      handler() {
-        this.init_myChart10();
+     /*area:{
+      deep:true,
+      handler(){
+          this.init_myChart7();
       }
     },
-    yearList: {
-      deep: true,
-      handler() {
-        this.init_myChart10();
+     areatotal:{
+      deep:true,
+      handler(){
+          this.init_myChart7();
+      }
+    },*/
+     countList:{
+      deep:true,
+      handler(){
+          this.init_myChart10();
+      }
+    },
+    yearList:{
+      deep:true,
+      handler(){
+          this.init_myChart10();
       }
     },
   },
@@ -284,13 +282,12 @@ export default {
   methods: {
     //统战工作对象图表
     init_myChart1() {
-      this.myChart1 = this.$echarts.init(this.$refs.echart1);
+      this.myChart1 = this.$echarts.init(this.$refs.echart1);   
     },
-    get_myChart1Data() {
+    get_myChart1Data(){
       this.updata_myChart1()
     },
-    updata_myChart1() {
-      console.log(this.workArr);
+    updata_myChart1(){
       const option = {
         tooltip: {
           trigger: "axis",
@@ -331,7 +328,7 @@ export default {
         },
         yAxis: {
           type: "category",
-          data: ["少数民族", "留学归国人员", "无党派人士", "民主党派"],
+          data:["民主党派","少数民族","无党派人士","留学归国人员"],
           axisLabel: {
             inside: true,
             color: "#fff",
@@ -368,29 +365,29 @@ export default {
           },
         ],
       };
-      this.myChart1.setOption(option);
+        this.myChart1.setOption(option);
     },
 
     //党外干部图表
-    init_myChart2() {
+    init_myChart2() { 
       this.myChart2 = this.$echarts.init(document.getElementById("echart2"));
     },
-    get_myChart2Data() {
-      let arr = this.nonPartyInfo
-      this.nonPartyInfo = []
+    get_myChart2Data(){ 
+        let arr = this.nonPartyInfo
+        this.nonPartyInfo=[]
       //处理返回的数组中每一个对象的key
-      arr.map(item => {
+        arr.map(item => {
         let _item = JSON.parse(JSON.stringify(item).replace('count', 'value').replace('joblevel', 'name'))
         this.nonPartyInfo.push(_item)
       })
       this.updata_myChart2()
     },
-    updata_myChart2() {
-      let dataAxis = [{ name: '厅级', value: '0' },
+    updata_myChart2(){
+        let dataAxis = [{ name: '厅级', value: '0' },
       { name: '处级', value: '12' },
       { name: '科级', value: '24' }]
       var option = {
-
+      
         tooltip: {
           trigger: "item",
           formatter: "{a} <br/>{b}: {c} ({d}%)",
@@ -438,17 +435,17 @@ export default {
         ],
       };
       //使用刚指定的配置项和数据显示图标
-      option && this.myChart2.setOption(option);
+      option &&this.myChart2.setOption(option);
     },
 
     //民主党派图表
     init_myChart3() {
       this.myChart3 = this.$echarts.init(document.getElementById("echart3"));
     },
-    get_myChart3Data() {
+    get_myChart3Data(){
       this.updata_myChart3()
     },
-    updata_myChart3() {
+    updata_myChart3(){
       var option = {
         tooltip: {
           trigger: "axis",
@@ -475,24 +472,24 @@ export default {
             fontSize: 10,
             inside: false,
             color: "#fff",
-            interval: 0,
-            rotate: 0,
+            interval:0,
+            rotate:0,
             formatter: function (value) {
-              // 自定义 formatter 函数
-              var maxLength = 2; // 定义每行最大字符数
-              if (value.length > maxLength) {
-                // 如果文字长度超过最大字符数，则进行换行处理
-                var rows = Math.ceil(value.length / maxLength); // 计算需要的行数
-                var result = ""; // 存储最终的换行结果
-                for (var i = 0; i < rows; i++) {
-                  var start = i * maxLength; // 每行的起始位置
-                  var end = start + maxLength; // 每行的结束位置
-                  result += value.substring(start, end) + "\n"; // 添加换行符
-                }
-                return result;
-              }
-              return value; // 如果文字长度未超过最大字符数，则直接返回原始值
-            }
+// 自定义 formatter 函数
+var maxLength = 2; // 定义每行最大字符数
+if (value.length > maxLength) {
+// 如果文字长度超过最大字符数，则进行换行处理
+var rows = Math.ceil(value.length / maxLength); // 计算需要的行数
+var result = ""; // 存储最终的换行结果
+for (var i = 0; i < rows; i++) {
+var start = i * maxLength; // 每行的起始位置
+var end = start + maxLength; // 每行的结束位置
+result += value.substring(start, end) + "\n"; // 添加换行符
+}
+return result;
+}
+return value; // 如果文字长度未超过最大字符数，则直接返回原始值
+}
 
           },
           axisTick: {
@@ -546,27 +543,26 @@ export default {
         ],
       };
       //使用刚指定的配置项和数据显示图标
-      option && this.myChart3.setOption(option);
+      option &&this.myChart3.setOption(option);
     },
 
     //无党派，留学归国人员图表
-    init_myChart4() {
+    init_myChart4(){
       this.myChart4 = this.$echarts.init(document.getElementById("echart4"));
     },
-    get_myChart4Data() {
+    get_myChart4Data(){
       let arr = this.nonmemberShip
-      console.log(arr);
-      this.nonmemberShip = []
+       this.nonmemberShip=[]
       //处理返回的数组中每一个对象的key  count
-      arr.map(item => {
+        arr.map(item => {
         let _item = JSON.parse(JSON.stringify(item).replace('count', 'value').replace('other_party', 'name'))
         this.nonmemberShip.push(_item)
-        this.nonmemberShip = this.nonmemberShip.filter(item => item.value > 0)
+        this.nonmemberShip= this.nonmemberShip.filter(item=>item.value>0)
       })
       this.updata_myChart4()
 
     },
-    updata_myChart4() {
+    updata_myChart4(){
       var option = {
         tooltip: {
           trigger: "item",
@@ -619,26 +615,25 @@ export default {
       };
       //使用刚指定的配置项和数据显示图标
       option && this.myChart4.setOption(option);
-    },
+ },
 
-    //少数民族图表
+     //少数民族图表
     init_myChart5() {
       this.myChart5 = this.$echarts.init(document.getElementById("echart5"));
     },
-    get_myChart5Data() {
+    get_myChart5Data(){
       let arr = this.nationalShip
-      //console.log(arr);
-      this.nationalShip = []
+       this.nationalShip=[]
       //处理返回的数组中每一个对象的key  count
-      arr.map(item => {
-        let _item = JSON.parse(JSON.stringify(item).replace('totalOfStudent', 'value').replace('type', 'name').replace('totalOfTeacher', 'value'))
+        arr.map(item => {
+        let _item = JSON.parse(JSON.stringify(item).replace('totalOfStudent', 'value').replace('type', 'name').replace('totalOfTeacher','value'))
         this.nationalShip.push(_item)
-        this.nationalShip = this.nationalShip.filter(item => item.value > 0)
+        this.nationalShip= this.nationalShip.filter(item=>item.value>0)
       })
       this.updata_myChart5()
     },
-    updata_myChart5() {
-      var option = {
+    updata_myChart5(){
+        var option = {
         tooltip: {
           trigger: "item",
           formatter: "{a} <br/>{b}: {c} ({d}%)",
@@ -690,16 +685,16 @@ export default {
       };
       //使用刚指定的配置项和数据显示图标
       option && this.myChart5.setOption(option);
-    },
+  },
 
     //港澳台图表
     init_myChart7() {
       this.myChart7 = this.$echarts.init(document.getElementById("echart7"));
     },
-    get_myChart7Data() {
+    get_myChart7Data(){
       this.updata_myChart7()
     },
-    updata_myChart7() {
+    updata_myChart7(){
       var option = {
         tooltip: {
           trigger: "axis",
@@ -723,10 +718,10 @@ export default {
           type: "category",
           data: this.area,
           axisLabel: {
-            fontSize: 9,
+            fontSize:9,
             inside: false,
             color: "#fff",
-            interval: 0,
+            interval:0,
           },
           axisTick: {
             show: false,
@@ -775,16 +770,16 @@ export default {
         ],
       };
       //使用刚指定的配置项和数据显示图标
-      option && this.myChart7.setOption(option);
+      option &&this.myChart7.setOption(option);
     },
 
     //参政议政图表
-    get_8Data() {
+    get_8Data(){
     },
-    get_9Data() {
+    get_9Data(){
     },
     init_myChart10() {
-      let data = this.countList;
+      let data =this.countList;
       let dataAxis = this.yearList;
       var myChart10 = this.$echarts.init(document.getElementById("echart10"));
       var option = {
@@ -867,13 +862,13 @@ export default {
       });
     },
 
-    //对点击单一的学院的数据进行处理
+      //对点击单一的学院的数据进行处理
     doCallDepartmentData(department) {
       callDepartment(department).then(res => {
-        let result = res
-        this.workArr = [],
+          let result = res
+          this.workArr=[],
           this.workObejct = result.res1.t
-        for (let i in this.workObejct) {
+          for (let i in this.workObejct){
           this.workArr.push(this.workObejct[i])
         }
         this.get_myChart1Data()
@@ -888,7 +883,7 @@ export default {
         this.sum4 = result.res4.t[2]?.total
         this.get_myChart4Data()
         this.nationalShip = result.res5.t
-        this.sum5 = result.res5.t[this.nationalShip.length - 1]?.total
+        this.sum5 = result.res5.t[this.nationalShip.length-1]?.total
         this.get_myChart5Data()
         /*this.area = result.res6.t.area
         this.areatotal = result.res6.t.total
@@ -896,11 +891,11 @@ export default {
         this.get_myChart7Data()*/
         this.liangDaiBiao = result.res7.t
         this.get_8Data()
-      })
+      })    
     }
   },
 
-  mounted() {
+    mounted() {
     this.init_myChart1();
     this.init_myChart2();
     this.init_myChart3();
@@ -908,12 +903,12 @@ export default {
     this.init_myChart5();
     //this.init_myChart7();
     this.init_myChart10();
-
-    callAll().then(res => {
+  
+      callAll().then(res => {
       let result = res
       //图表1--统战工作对象
-      this.workObejct = result.res1.t
-      for (let i in this.workObejct) {
+      this.workObejct = result.res1.t   
+      for (let i in this.workObejct){
         this.workArr.push(this.workObejct[i])
       }
       this.get_myChart1Data()
@@ -932,7 +927,7 @@ export default {
       this.get_myChart4Data()
       //图表5--少数民族 
       this.nationalShip = result.res5.t
-      this.sum5 = result.res5.t[this.nationalShip.length - 1]?.total
+      this.sum5 = result.res5.t[this.nationalShip.length-1]?.total
       this.get_myChart5Data()
       //图表6--港澳台
       /*this.area = result.res6.t.area
@@ -941,26 +936,26 @@ export default {
       this.get_myChart7Data()*/
       //图表7--两代表
       this.liangDaiBiao = result.res7.t
-      this.sum8 = this.liangDaiBiao.count[0]
+      this.sum8=this.liangDaiBiao.count[0]
       this.npcCount = this.liangDaiBiao.count[1]
       this.mpcCount = this.liangDaiBiao.count[2]
       this.PcpccCount = this.liangDaiBiao.count[3]
       this.McpccCount = this.liangDaiBiao.count[4]
       this.npc = this.liangDaiBiao.全国人大代表
-      for (var i = 0; i < this.npcCount; i++) {
-        this.npcArr += this.npc[i] + ' ';
+      for(var i=0;i<this.npcCount;i++){
+        this.npcArr += this.npc[i]+' ';
       }
       this.mpc = this.liangDaiBiao.市人大代表
-      for (var i = 0; i < this.mpcCount; i++) {
-        this.mpcArr += this.mpc[i] + ' ';
+      for(var i=0;i<this.mpcCount;i++){
+        this.mpcArr += this.mpc[i]+' ';
       }
       this.Pcpcc = this.liangDaiBiao.省政协委员
-      for (var i = 0; i < this.PcpccCount; i++) {
-        this.PcpccArr += this.Pcpcc[i] + ' ';
+      for(var i=0;i<this.PcpccCount;i++){
+        this.PcpccArr += this.Pcpcc[i]+' ';
       }
       this.Mcpcc = this.liangDaiBiao.市政协委员
-      for (var i = 0; i < this.McpccCount; i++) {
-        this.McpccArr += this.Mcpcc[i] + ' ';
+      for(var i=0;i<this.McpccCount;i++){
+        this.McpccArr += this.Mcpcc[i]+' ';
       }
       this.get_8Data()
       //--图表8--获奖情况
@@ -976,43 +971,43 @@ export default {
 
 
     this.$bus.$on("wenxue", this.doCallDepartmentData)      //文学与新闻传播学院党委
-    this.$bus.$on("shiping", this.doCallDepartmentData)      //食品科技学院党委
-    this.$bus.$on("qixiang", this.doCallDepartmentData)      //海洋与气象学院党委
+    this.$bus.$on("shiping",this.doCallDepartmentData)      //食品科技学院党委
+    this.$bus.$on("qixiang",this.doCallDepartmentData)      //海洋与气象学院党委
     this.$bus.$on("houqin", this.doCallDepartmentData)      //后勤与产业党委
-    this.$bus.$on("jixie", this.doCallDepartmentData)      //机械工程学院党委
+    this.$bus.$on("jixie",  this.doCallDepartmentData)      //机械工程学院党委
     this.$bus.$on("guanli", this.doCallDepartmentData)      //管理学院党委
     this.$bus.$on("makesi", this.doCallDepartmentData)      //马克思主义学院党委
     this.$bus.$on("jingji", this.doCallDepartmentData)      //经济学院党委 
-    this.$bus.$on("nengyuan", this.doCallDepartmentData)     //海洋工程与能源学院党委
-    this.$bus.$on("jisuanji", this.doCallDepartmentData)     //数学与计算机学院党委
-    this.$bus.$on("dianzi", this.doCallDepartmentData)       //电子与信息工程学院党委
+    this.$bus.$on("nengyuan",this.doCallDepartmentData)     //海洋工程与能源学院党委
+    this.$bus.$on("jisuanji",this.doCallDepartmentData)     //数学与计算机学院党委
+    this.$bus.$on("dianzi",this.doCallDepartmentData)       //电子与信息工程学院党委
     this.$bus.$on("huaxue", this.doCallDepartmentData)      //化学与环境学院党委
     this.$bus.$on("nongye", this.doCallDepartmentData)      //滨海农业学院党委
-    this.$bus.$on("shuichan", this.doCallDepartmentData)     //水产学院党委
+    this.$bus.$on("shuichan",this.doCallDepartmentData)     //水产学院党委
     this.$bus.$on("fazhen", this.doCallDepartmentData)      //法政学院党委
-    this.$bus.$on("waiguoyu", this.doCallDepartmentData)     //外国语学院党委
-    this.$bus.$on("zhongge", this.doCallDepartmentData)      //中歌艺术学院党委
-    this.$bus.$on("tiyu", this.doCallDepartmentData)         //体育与休闲学院党委
-    this.$bus.$on("jiguan", this.doCallDepartmentData)       //机关党委
-    this.$bus.$on("tuixiu", this.doCallDepartmentData)       //离退休干部党委
+    this.$bus.$on("waiguoyu",this.doCallDepartmentData)     //外国语学院党委
+    this.$bus.$on("zhongge",this.doCallDepartmentData)      //中歌艺术学院党委
+    this.$bus.$on("tiyu",this.doCallDepartmentData)         //体育与休闲学院党委
+    this.$bus.$on("jiguan",this.doCallDepartmentData)       //机关党委
+    this.$bus.$on("tuixiu",this.doCallDepartmentData)       //离退休干部党委
     this.$bus.$on("jiaofu", this.doCallDepartmentData)      //教辅单位党委
     this.$bus.$on("haiyun", this.doCallDepartmentData)      //船舶与海运学院党委
     this.$bus.$on("yangjiang", this.doCallDepartmentData)      //阳江校区党委
   },
-  beforeDestroy() {
-    this.myChart1.clear()
-    this.myChart2.clear()
-    this.myChart3.clear()
-    this.myChart4.clear()
-    this.myChart5.clear()
-    this.myChart7.clear()
-    this.myChart8.clear()
-    this.myChart9.clear()
-    this.myChart10.clear()
+  beforeDestroy () {
+  this.myChart1.clear()
+  this.myChart2.clear()
+  this.myChart3.clear()
+  this.myChart4.clear()
+  this.myChart5.clear()
+  this.myChart7.clear()
+  this.myChart8.clear()
+  this.myChart9.clear()
+  this.myChart10.clear()
   }
 
 }
-</script>
+</script> 
 
 <style scoped>
 * {
@@ -1221,9 +1216,9 @@ i {
 }
 
 .content {
-  background: url(../assets/img/地图界面.png) no-repeat center center;
+ background: url(../assets/img/地图界面.png) no-repeat center center;
   background-size: cover;
-
-  background-color: rgba(106, 86, 86, 0.727)
+ 
+  background-color:  rgba(106, 86, 86, 0.727)
 }
 </style>

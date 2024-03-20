@@ -11,8 +11,13 @@
           <div class="add">+</div>
         </div>
         <div class="user-header">
-          <input type="file" accept="image/*" @change='onchangeImgFun' class="header-upload-btn user-header-com">
-          <img alt="" :src='imgStr' class=" user-header-com">
+          <input type="file"
+                 accept="image/*"
+                 @change='onchangeImgFun'
+                 class="header-upload-btn user-header-com">
+          <img alt=""
+               :src='imgStr'
+               class=" user-header-com">
 
         </div>
 
@@ -20,21 +25,26 @@
       </el-form>
     </div>
     <div class=" pleft1  ptop1rem i1">
-      <el-form :inline="true" class="demo-form-inline">
+      <el-form :inline="true"
+               class="demo-form-inline">
 
         <!-- 姓名 -->
         <el-form-item prop="must">
           <!-- @blur="checkInput(index)" -->
 
-          <el-input :placeholder="input_item[0].inputinfo" v-model="input_item[0].input1" clearable
-            @input="updateView($event, index)">
+          <el-input :placeholder="input_item[0].inputinfo"
+                    v-model="input_item[0].input1"
+                    clearable
+                    @input="updateView($event, index)">
             <template slot="prepend">{{ input_item[0].inputname }}</template>
           </el-input>
         </el-form-item>
         <!-- 性别 -->
         <el-form-item prop="must">
-          <el-input :placeholder="input_item[5].inputinfo" v-model="input_item[5].input1" clearable
-            @input="updateView($event, index)">
+          <el-input :placeholder="input_item[5].inputinfo"
+                    v-model="input_item[5].input1"
+                    clearable
+                    @input="updateView($event, index)">
             <template slot="prepend">{{ input_item[5].inputname }}</template>
           </el-input>
         </el-form-item>
@@ -43,8 +53,13 @@
           <div class="selectBox  s1">
             <span>{{ select_item[1].selectname }}</span>
 
-            <el-select v-model="select_item[1].id" :placeholder="select_item[1].selectinfo" clearable>
-              <el-option v-for="v in select_item[1].sel" :key="v.value" :label="v.label" :value="v.value" />
+            <el-select v-model="select_item[1].id"
+                       :placeholder="select_item[1].selectinfo"
+                       clearable>
+              <el-option v-for="v in select_item[1].sel"
+                         :key="v.value"
+                         :label="v.label"
+                         :value="v.value" />
             </el-select>
           </div>
         </el-form-item>
@@ -52,9 +67,12 @@
         <!-- 出生日期 -->
         <el-form-item>
           <div class="dateBox s1 ">
-            <span>{{ date_item[0].datename }}</span>
-            <el-date-picker v-model="date_item[0].value" type="month" format="yyyy 年 MM 月" value-format="yyyy-MM"
-              placeholder="请选择年-月" />
+            <span>{{ date_item[0].datename}}</span>
+            <el-date-picker v-model="date_item[0].value"
+                            type="month"
+                            format="yyyy 年 MM 月"
+                            value-format="yyyy-MM"
+                            placeholder="请选择年-月" />
           </div>
         </el-form-item>
         <!-- 政治面貌 -->
@@ -62,17 +80,25 @@
           <div class="selectBox  s1">
             <span>{{ select_item[3].selectname }}</span>
 
-            <el-select v-model="select_item[3].id" :placeholder="select_item[3].selectinfo" clearable>
-              <el-option v-for="v in select_item[3].sel" :key="v.value" :label="v.label" :value="v.value" />
+            <el-select v-model="select_item[3].id"
+                       :placeholder="select_item[3].selectinfo"
+                       clearable>
+              <el-option v-for="v in select_item[3].sel"
+                         :key="v.value"
+                         :label="v.label"
+                         :value="v.value" />
             </el-select>
           </div>
         </el-form-item>
         <!-- 加入时间 -->
         <el-form-item>
           <div class="dateBox s1 ">
-            <span>{{ date_item[2].datename }}</span>
-            <el-date-picker v-model="date_item[2].value" type="month" format="yyyy 年 MM 月" value-format="yyyy-MM"
-              placeholder="请选择年-月" />
+            <span>{{ date_item[2].datename}}</span>
+            <el-date-picker v-model="date_item[2].value"
+                            type="month"
+                            format="yyyy 年 MM 月"
+                            value-format="yyyy-MM"
+                            placeholder="请选择年-月" />
           </div>
         </el-form-item>
         <!-- 学位 -->
@@ -80,8 +106,13 @@
           <div class="selectBox  s1">
             <span>{{ select_item[7].selectname }}</span>
 
-            <el-select v-model="select_item[7].id" :placeholder="select_item[7].selectinfo" clearable>
-              <el-option v-for="v in select_item[7].sel" :key="v.value" :label="v.label" :value="v.value" />
+            <el-select v-model="select_item[7].id"
+                       :placeholder="select_item[7].selectinfo"
+                       clearable>
+              <el-option v-for="v in select_item[7].sel"
+                         :key="v.value"
+                         :label="v.label"
+                         :value="v.value" />
             </el-select>
           </div>
         </el-form-item>
@@ -90,8 +121,13 @@
           <div class="selectBox  s1">
             <span>{{ select_item[10].selectname }}</span>
 
-            <el-select v-model="select_item[10].id" :placeholder="select_item[10].selectinfo" clearable>
-              <el-option v-for="v in select_item[10].sel" :key="v.value" :label="v.label" :value="v.value" />
+            <el-select v-model="select_item[10].id"
+                       :placeholder="select_item[10].selectinfo"
+                       clearable>
+              <el-option v-for="v in select_item[10].sel"
+                         :key="v.value"
+                         :label="v.label"
+                         :value="v.value" />
             </el-select>
           </div>
         </el-form-item>
@@ -100,8 +136,13 @@
           <div class="selectBox  s1">
             <span>{{ select_item[4].selectname }}</span>
 
-            <el-select v-model="select_item[4].id" :placeholder="select_item[4].selectinfo" clearable>
-              <el-option v-for="v in select_item[4].sel" :key="v.value" :label="v.label" :value="v.value" />
+            <el-select v-model="select_item[4].id"
+                       :placeholder="select_item[4].selectinfo"
+                       clearable>
+              <el-option v-for="v in select_item[4].sel"
+                         :key="v.value"
+                         :label="v.label"
+                         :value="v.value" />
             </el-select>
           </div>
         </el-form-item>
@@ -110,8 +151,13 @@
           <div class="selectBox  s1">
             <span>{{ select_item[8].selectname }}</span>
 
-            <el-select v-model="select_item[8].id" :placeholder="select_item[8].selectinfo" clearable>
-              <el-option v-for="v in select_item[8].sel" :key="v.value" :label="v.label" :value="v.value" />
+            <el-select v-model="select_item[8].id"
+                       :placeholder="select_item[8].selectinfo"
+                       clearable>
+              <el-option v-for="v in select_item[8].sel"
+                         :key="v.value"
+                         :label="v.label"
+                         :value="v.value" />
             </el-select>
           </div>
         </el-form-item>
@@ -120,8 +166,13 @@
           <div class="selectBox  s1">
             <span>{{ select_item[9].selectname }}</span>
 
-            <el-select v-model="select_item[9].id" :placeholder="select_item[9].selectinfo" clearable>
-              <el-option v-for="v in select_item[9].sel" :key="v.value" :label="v.label" :value="v.value" />
+            <el-select v-model="select_item[9].id"
+                       :placeholder="select_item[9].selectinfo"
+                       clearable>
+              <el-option v-for="v in select_item[9].sel"
+                         :key="v.value"
+                         :label="v.label"
+                         :value="v.value" />
             </el-select>
           </div>
         </el-form-item>
@@ -130,8 +181,13 @@
           <div class="selectBox  s1">
             <span>{{ select_item[15].selectname }}</span>
 
-            <el-select v-model="select_item[15].id" :placeholder="select_item[15].selectinfo" clearable>
-              <el-option v-for="v in select_item[15].sel" :key="v.value" :label="v.label" :value="v.value" />
+            <el-select v-model="select_item[15].id"
+                       :placeholder="select_item[15].selectinfo"
+                       clearable>
+              <el-option v-for="v in select_item[15].sel"
+                         :key="v.value"
+                         :label="v.label"
+                         :value="v.value" />
             </el-select>
           </div>
         </el-form-item>
@@ -140,8 +196,13 @@
           <div class="selectBox  s1">
             <span>{{ select_item[17].selectname }}</span>
 
-            <el-select v-model="select_item[17].id" :placeholder="select_item[17].selectinfo" clearable>
-              <el-option v-for="v in select_item[17].sel" :key="v.value" :label="v.label" :value="v.value" />
+            <el-select v-model="select_item[17].id"
+                       :placeholder="select_item[17].selectinfo"
+                       clearable>
+              <el-option v-for="v in select_item[17].sel"
+                         :key="v.value"
+                         :label="v.label"
+                         :value="v.value" />
             </el-select>
           </div>
         </el-form-item>
@@ -150,8 +211,13 @@
           <div class="selectBox  s1">
             <span>{{ select_item[2].selectname }}</span>
 
-            <el-select v-model="select_item[2].id" :placeholder="select_item[2].selectinfo" clearable>
-              <el-option v-for="v in select_item[2].sel" :key="v.value" :label="v.label" :value="v.value" />
+            <el-select v-model="select_item[2].id"
+                       :placeholder="select_item[2].selectinfo"
+                       clearable>
+              <el-option v-for="v in select_item[2].sel"
+                         :key="v.value"
+                         :label="v.label"
+                         :value="v.value" />
             </el-select>
           </div>
         </el-form-item>
@@ -160,8 +226,13 @@
           <div class="selectBox  s1">
             <span>{{ select_item[11].selectname }}</span>
 
-            <el-select v-model="select_item[11].id" :placeholder="select_item[11].selectinfo" clearable>
-              <el-option v-for="v in select_item[11].sel" :key="v.value" :label="v.label" :value="v.value" />
+            <el-select v-model="select_item[11].id"
+                       :placeholder="select_item[11].selectinfo"
+                       clearable>
+              <el-option v-for="v in select_item[11].sel"
+                         :key="v.value"
+                         :label="v.label"
+                         :value="v.value" />
             </el-select>
           </div>
         </el-form-item>
@@ -170,8 +241,13 @@
           <div class="selectBox  s1">
             <span>{{ select_item[6].selectname }}</span>
 
-            <el-select v-model="select_item[6].id" :placeholder="select_item[6].selectinfo" clearable>
-              <el-option v-for="v in select_item[6].sel" :key="v.value" :label="v.label" :value="v.value" />
+            <el-select v-model="select_item[6].id"
+                       :placeholder="select_item[6].selectinfo"
+                       clearable>
+              <el-option v-for="v in select_item[6].sel"
+                         :key="v.value"
+                         :label="v.label"
+                         :value="v.value" />
             </el-select>
           </div>
         </el-form-item>
@@ -180,42 +256,61 @@
           <div class="selectBox  s1">
             <span>{{ select_item[13].selectname }}</span>
 
-            <el-select v-model="select_item[13].id" :placeholder="select_item[13].selectinfo" clearable>
-              <el-option v-for="v in select_item[13].sel" :key="v.value" :label="v.label" :value="v.value" />
+            <el-select v-model="select_item[13].id"
+                       :placeholder="select_item[13].selectinfo"
+                       clearable>
+              <el-option v-for="v in select_item[13].sel"
+                         :key="v.value"
+                         :label="v.label"
+                         :value="v.value" />
             </el-select>
           </div>
         </el-form-item>
         <!-- 手机号码 -->
         <el-form-item prop="must">
-          <el-input :placeholder="input_item[1].inputinfo" v-model="input_item[1].input1" clearable
-            @input="updateView($event, index)">
+          <el-input :placeholder="input_item[1].inputinfo"
+                    v-model="input_item[1].input1"
+                    clearable
+                    @input="updateView($event, index)">
             <template slot="prepend">{{ input_item[1].inputname }}</template>
           </el-input>
         </el-form-item>
         <!-- 任职轴 -->
         <el-form-item prop="must">
           <div class="rodBox s1">
-            <span>{{ input_item[8].inputname }}</span>
-            <el-input type="textarea" @input="updateView($event, index)" clearable v-model="input_item[8].input1"
-              style="width:1074px;margin-left: 7rem;" :placeholder="input_item[8].inputinfo">
+            <span>{{input_item[8].inputname}}</span>
+            <el-input type="textarea"
+                      @input="updateView($event, index)"
+                      clearable
+                      v-model="input_item[8].input1"
+                      style="width:1074px;margin-left: 7rem;"
+                      :placeholder="input_item[8].inputinfo">
             </el-input>
           </div>
         </el-form-item>
         <!-- 活动轴 -->
         <el-form-item prop="must">
           <div class="rodBox s1">
-            <span>{{ input_item[9].inputname }}</span>
-            <el-input type="textarea" @input="updateView($event, index)" clearable v-model="input_item[9].input1"
-              style="width:1074px;margin-left: 7rem;" :placeholder="input_item[9].inputinfo">
+            <span>{{input_item[9].inputname}}</span>
+            <el-input type="textarea"
+                      @input="updateView($event, index)"
+                      clearable
+                      v-model="input_item[9].input1"
+                      style="width:1074px;margin-left: 7rem;"
+                      :placeholder="input_item[9].inputinfo">
             </el-input>
           </div>
         </el-form-item>
         <!-- 获奖轴 -->
         <el-form-item prop="must">
           <div class="rodBox s1">
-            <span>{{ input_item[10].inputname }}</span>
-            <el-input type="textarea" @input="updateView($event, index)" clearable v-model="input_item[10].input1"
-              style="width:1074px;margin-left: 7rem;" :placeholder="input_item[10].inputinfo">
+            <span>{{input_item[10].inputname}}</span>
+            <el-input type="textarea"
+                      @input="updateView($event, index)"
+                      clearable
+                      v-model="input_item[10].input1"
+                      style="width:1074px;margin-left: 7rem;"
+                      :placeholder="input_item[10].inputinfo">
             </el-input>
           </div>
         </el-form-item>
@@ -225,18 +320,23 @@
     </div>
     <h4 style="margin-top: 10px">选填选项</h4>
     <div class="pleft1 ptop1rem i1">
-      <el-form :inline="true" class="demo-form-inline">
+      <el-form :inline="true"
+               class="demo-form-inline">
         <!-- 籍贯 -->
         <el-form-item prop="must">
-          <el-input :placeholder="input_item[4].inputinfo" v-model="input_item[4].input1" clearable
-            @input="updateView($event, index)">
+          <el-input :placeholder="input_item[4].inputinfo"
+                    v-model="input_item[4].input1"
+                    clearable
+                    @input="updateView($event, index)">
             <template slot="prepend">{{ input_item[4].inputname }}</template>
           </el-input>
         </el-form-item>
         <!-- 职务 -->
         <el-form-item prop="must">
-          <el-input :placeholder="input_item[7].inputinfo" v-model="input_item[7].input1" clearable
-            @input="updateView($event, index)">
+          <el-input :placeholder="input_item[7].inputinfo"
+                    v-model="input_item[7].input1"
+                    clearable
+                    @input="updateView($event, index)">
             <template slot="prepend">{{ input_item[7].inputname }}</template>
           </el-input>
         </el-form-item>
@@ -246,8 +346,13 @@
           <div class="selectBox s1">
             <span>{{ select_item[0].selectname }}</span>
 
-            <el-select v-model="select_item[0].id" :placeholder="select_item[0].selectinfo" clearable>
-              <el-option v-for="v in select_item[0].sel" :key="v.value" :label="v.label" :value="v.value" />
+            <el-select v-model="select_item[0].id"
+                       :placeholder="select_item[0].selectinfo"
+                       clearable>
+              <el-option v-for="v in select_item[0].sel"
+                         :key="v.value"
+                         :label="v.label"
+                         :value="v.value" />
             </el-select>
           </div>
         </el-form-item>
@@ -289,7 +394,8 @@
       </el-input>
     </div> -->
     <div class="foot-button pleft1 clear">
-      <el-button type="primary" @click="saveData">保存</el-button>
+      <el-button type="primary"
+                 @click="saveData">保存</el-button>
       <!-- <el-button style="background: #fff; color: #606266" @click="empty">重置</el-button> -->
     </div>
   </div>
@@ -299,7 +405,7 @@
 import axios from 'axios'
 export default {
   name: 'AdPeopleDetail',
-  data() {
+  data () {
     return {
       imgStr: null,
       errorSrt: '',
@@ -634,11 +740,11 @@ export default {
   watch: {
 
   },
-  created() {
+  created () {
     this.getSelectData()
   },
   methods: {
-    async getSelectData() {
+    async getSelectData () {
       // 民族
       let { data: res1 } = await this.$axios.post("http://localhost:9106/service/renwuku/queryAllNations")
       res1.t.map(item => {
@@ -745,24 +851,24 @@ export default {
       })
       this.select_item[16].sel = this.abroadTimeAxis
     },
-    onchangeImgFun(e) {
+    onchangeImgFun (e) {
       console.log(e.target.files[0]);
       this.imgStr = window.URL.createObjectURL(e.target.files[0])
       console.log(window.URL.createObjectURL(e.target.files[0])) // 获取当前文件的信息
       this.file = e.target.files[0]
       console.log(this.file);
-
+ 
     },
 
 
 
-    updateView(e, index) {
+    updateView (e, index) {
       this.$forceUpdate()
     },
-    prev() {
+    prev () {
       this.$router.back()
     },
-    empty() {
+    empty () {
       this.myInput.input2 = ''
       for (let i = 0; i < this.input_item.length; i++) {
         this.input_item[i].input1 = ''
@@ -772,7 +878,7 @@ export default {
       }
     },
 
-    saveData() {
+    saveData () {
 
       // if (this.input_item[0].input1 === '' || this.input_item[1].input1 === '' || this.input_item[5].input1 === '' || this.date_item[0].value === ''
       //   || this.date_item[2].value === '' || this.select_item[1].id === '' || this.select_item[3].id === ''
@@ -827,14 +933,14 @@ export default {
       // axios.post(`http://localhost:9106/service/renwuku/addPeople`, this.sendData).then(res => {
       //   console.log(res);
       // })
-      axios.interceptors.request.use(config => {
-        if (config.method === 'post') {
-          delete config.headers['Content-Type']; // 或者将其设置为null
-        }
-        return config;
-      }, error => {
-        return Promise.reject(error);
-      });
+          axios.interceptors.request.use(config => {
+            if (config.method === 'post') {
+              delete config.headers['Content-Type']; // 或者将其设置为null
+            }
+            return config;
+            }, error => {
+            return Promise.reject(error);
+               } );
 
       this.$axios
         .post(
@@ -867,40 +973,32 @@ export default {
 .pleft1 {
   padding-left: 1%;
 }
-
 .w25rem {
   width: 25rem;
 }
-
 .ptop1rem {
   padding-top: 1rem;
 }
-
 .clear {
   clear: both;
 }
-
 .foot-button {
   display: flex;
   padding-top: 2rem;
 }
-
 .show-middle {
   width: 100%;
   margin: 0rem auto;
 }
-
 .show-middle span {
   display: inline-block;
   height: 36px;
   line-height: 36px;
   font-weight: bold;
 }
-
 ::v-deep .inputBox {
   float: left;
 }
-
 ::v-deep .selectBox,
 .dateBox,
 .headBox {
@@ -909,7 +1007,6 @@ export default {
   position: relative;
   font-size: 0;
 }
-
 .headBox .add {
   position: absolute;
   height: 50px;
@@ -919,14 +1016,12 @@ export default {
   left: 169px;
   top: 20px;
 }
-
 ::v-deep .el-input-group__prepend {
   width: 7rem;
   text-align: center;
 }
-
-::v-deep .selectBox>span,
-.dateBox>span {
+::v-deep .selectBox > span,
+.dateBox > span {
   display: inline-block;
   white-space: nowrap;
   background-color: #f5f7fa;
@@ -943,8 +1038,7 @@ export default {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-
-.headBox>span {
+.headBox > span {
   display: inline-block;
   white-space: nowrap;
   background-color: #f5f7fa;
@@ -958,8 +1052,7 @@ export default {
   border: 1px solid #dcdfe6;
   border-radius: 4px;
 }
-
-.rodBox>span {
+.rodBox > span {
   position: absolute;
   top: 0;
   display: inline-block;
@@ -978,7 +1071,6 @@ export default {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-
 ::v-deep .el-select,
 .el-date-editor.el-input {
   vertical-align: middle;
@@ -995,21 +1087,18 @@ export default {
   margin-bottom: 16px;
   margin-right: 16px;
 }
-
-::v-deep .el-textarea>.el-textarea__inner {
+::v-deep .el-textarea > .el-textarea__inner {
   height: 38px;
   border-radius: 0 4px 4px 0;
   padding: 0 30px 0 15px;
   line-height: 38px;
 }
-
 ::v-deep .avatar-uploader {
   width: 100px;
   height: 100px;
   display: inline-block;
   margin: 0 700px 16px 16px;
 }
-
 ::v-deep .avatar-uploader .el-upload {
   border: 1px dashed #d9d9d9;
   border-radius: 6px;
@@ -1019,11 +1108,9 @@ export default {
   height: 100px;
   width: 100px;
 }
-
 ::v-deep .avatar-uploader .el-upload:hover {
   border-color: #409eff;
 }
-
 ::v-deep .avatar-uploader-icon {
   font-size: 28px;
   color: #8c939d;
@@ -1032,13 +1119,11 @@ export default {
   line-height: 100px;
   text-align: center;
 }
-
 ::v-deep .avatar {
   width: 178px;
   height: 178px;
   display: block;
 }
-
 .user-header {
   position: relative;
   display: inline-block;
@@ -1051,7 +1136,6 @@ export default {
   opacity: 0;
   /* 通过定位把input放在img标签上面，通过不透明度隐藏 */
 }
-
 .user-header-com {
   margin-left: 13px;
   width: 144px;

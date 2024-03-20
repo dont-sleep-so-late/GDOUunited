@@ -1,5 +1,5 @@
 <template>
-  <div class="main" id="content">
+  <div class="main">
     <div class="nav">
       <!-- 路由跳转 -->
       <button @click="showDescion" class="descion"></button>
@@ -14,14 +14,14 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 export default {
   name: "AppMain",
-
   data() {
     return {
     }
   },
+
   computed: {
     ...mapGetters(["addRoutes"]),
   },
@@ -130,14 +130,19 @@ export default {
 
 <style scoped>
 .main {
-  position: relative;
+  /* position: relative;
   bottom: 120px;
   left: 495px;
   width: 545px;
-  height: 550px;
+  height: 550px; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 左侧样式 */
+
 .nav {
   width: 540px;
   height: 550px;

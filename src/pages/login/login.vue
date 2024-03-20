@@ -13,16 +13,13 @@
           <img src="../../assets/img/LoginImg/学校logo.png" alt="" />
         </div>
         <div class="formBox">
-          <el-form :label-position="labelPosition" label-width="80px" class="input" ref="loginForm" :model="loginForm"
-            :rules="loginRules" auto-complete="on">
+          <el-form :label-position="labelPosition" label-width="80px" class="input" ref="loginForm" :model="loginForm" :rules="loginRules" auto-complete="on">
 
             <el-form-item label="账号" class="setFormColor" prop="username">
-              <el-input type="text" v-model="loginForm.username" name="username" auto-complete="on"
-                placeholder="username"></el-input>
+              <el-input type="text" v-model="loginForm.username" name="username" auto-complete="on" placeholder="username"></el-input>
             </el-form-item>
             <el-form-item label="密码" class="setFormColor" prop="password">
-              <el-input :type="pwdType" v-model="loginForm.password" name="password" auto-complete="on"
-                placeholder="password" @keyup.enter.native="handleLogin"></el-input>
+              <el-input :type="pwdType" v-model="loginForm.password" name="password" auto-complete="on" placeholder="password" @keyup.enter.native="handleLogin"></el-input>
               <span class="show-pwd" @click="showPwd">
                 <svg-icon icon-class="eye" />
               </span>
@@ -48,9 +45,9 @@ import autofit from 'autofit.js'
 export default {
   name: 'login',
   mounted() {
-    autofit.init()
+	autofit.init()
   },
-  data() {
+  data () {
     const validateUsername = (rule, value, callback) => {
       if (!isvalidUsername(value)) {
         callback(new Error('请输入正确的用户名'))
@@ -82,14 +79,14 @@ export default {
   },
   methods: {
 
-    showPwd() {
+    showPwd () {
       if (this.pwdType === 'password') {
         this.pwdType = ''
       } else {
         this.pwdType = 'password'
       }
     },
-    handleLogin() {
+    handleLogin () {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           // debugger
@@ -118,13 +115,12 @@ export default {
     },
 
   },
-  beforeCreate() {
+  beforeCreate () {
     document
       .querySelector("body")
       .setAttribute("style", "background-color:#872624");
   },
-
-  beforeDestroy() {
+  beforeDestroy () {
     document.querySelector("body").setAttribute("style", "background-color:''");
   },
   beforeDestroy() {
@@ -213,23 +209,19 @@ export default {
   display: block;
   margin: auto;
 }
-
 /* 杨政恒 */
 .photoBox {
   display: flex;
   align-items: center;
 }
-
 .photoBox img {
   width: 250px;
   height: 250px;
 }
-
 .photoBox img.img2 {
   width: 330px;
   height: 230px;
 }
-
 .input {
   padding-top: 40px;
 }

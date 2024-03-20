@@ -32,3 +32,11 @@ export const reqSearchParty = (party, name, page, limit) =>
         url: `http://localhost:9106/Organization/Party/${party}/${name}/${page}/${limit}`,
         method: `get`
     })
+
+//民主党派职称分布
+export const queryTitleList = () => {
+    request({
+        url: 'http://localhost:9107/service/servicedecisioncenter/MinZuDangPai/queryTitle',
+        method:'post'
+    })
+}

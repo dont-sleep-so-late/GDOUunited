@@ -22,55 +22,52 @@
         </router-link>
       </div>
     </div>
-
-    <router-view></router-view>
-
-
+    
+        <router-view></router-view>
+  
+  
   </div>
 </template>
 
 <script>
-import autofit from 'autofit.js'
+import autofit from 'autofit.js';
 
 export default {
-  neme: 'metadata',
-  mounted() {
+  neme:'metadata',
+  beforeCreate() {
     autofit.init({
-
-      ignore: [
-        {
-          el: "#content", //必填
-          height: "300px",//可选，需注明单位
-          width: "70%",//可选，需注明单位
-          scale: 1.43, //可选：回放程度，基于主元素缩放后的大小
-        },
-      ]
-    }, false) // 可关闭控制台运行提示输出
+      ignore: [{
+        el: '#content',
+        width: '70%',
+        scale:1.43
+      }]
+    })
   },
-  methods: {
-    buttonClick() {
+  methods:{
+    buttonClick(){
       var btnList = document.querySelectorAll('.li')
-      for (let i = 0; i < btnList.length; i++) {
-        btnList[i].addEventListener('click', function () {
-          for (let j = 0; i < btnList.length; j++) {
-            btnList[j].style = 'color:white'
+      for(let i=0;i<btnList.length;i++){
+        btnList[i].addEventListener('click',function(){
+          for(let j=0;i<btnList.length;j++){
+            btnList[j].style='color:white'
           }
-          btnList[i].style = 'color:#f4e925'
+          btnList[i].style='color:#f4e925'
         })
       }
     },
-    buttonMove() {
-      var btnList = document.querySelectorAll('.li')
-      for (let i = 0; i < btnList.length; i++) {
-        btnList[i].addEventListener('mousemove', function () {
-          for (let j = 0; i < btnList.length; j++) {
-            btnList[j].style = 'color:white'
-          }
-          btnList[i].style = 'color:#f4e925'
-        })
-      }
+    buttonMove(){
+    var btnList = document.querySelectorAll('.li')
+    for(let i=0;i<btnList.length;i++){
+      btnList[i].addEventListener('mousemove',function(){
+        for(let j=0;i<btnList.length;j++){
+          btnList[j].style='color:white'
+        }
+        btnList[i].style='color:#f4e925'
+      })
     }
+  }
   },
+ 
 };
 </script>
 
@@ -199,14 +196,14 @@ i {
   padding-left: 20px;
 }
 
-.head .logout {
+.head .logout{
   font-size: 22px;
   line-height: 90px;
   color: white;
   text-align: center;
 }
 
-.logout img {
+.logout img{
   height: 22px;
 }
 
@@ -279,18 +276,16 @@ i {
   border-color: #f4e925;
   opacity: 1;
 }
-
-.router-link-active {
+.router-link-active{
   color: #f4e925 !important;
 }
-
 .router-link-active::before,
-.router-link-active::after {
+.router-link-active::after{
   border-color: #f4e925 !important;
   opacity: 1 !important;
 }
 
-.logout {
+.logout{
   float: right;
   display: block;
 }
@@ -305,15 +300,14 @@ i {
   height: 100%;
   padding-left: 10%;
 }
-
-.content {
-  background: url(../assets/img/地图界面.png) no-repeat top center;
-  background-size: cover;
-
-  /*background-color: #011328*/
+.content{
+   background: url(../assets/img/地图界面.png) no-repeat top center;
+    background-size: cover;
+    
+    /*background-color: #011328*/
 }
 
-.logo {
+.logo{
   float: left;
   height: 70px;
   margin-top: 8px;

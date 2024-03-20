@@ -3,143 +3,103 @@
     <ul class="clearfix nav1">
       <!-- 知联会 -->
       <li style="width: 29%">
-        <el-menu class="el-menu-demo"
-                 mode="horizontal"
-                 text-color="#fff"
-                 active-text-color="#f4e925">
-          <el-menu-item index="1">知联会(总数:{{sum1}})</el-menu-item>
+        <el-menu class="el-menu-demo" mode="horizontal" text-color="#fff" active-text-color="#f4e925">
+          <el-menu-item index="1">知联会(总数:{{ sum1 }})</el-menu-item>
         </el-menu>
         <!-- 性别分布 -->
-        <div class="box l-box"
-             style="margin-right:1%; width:49%">
+        <div class="box l-box" style="margin-right:1%; width:49%">
           <div class="tit">性别分布</div>
-          <div class="boxnav"
-               style="height: 117px;">
-            <div style="width: 100%; height: 140px;"
-                 id="echart8"></div>
+          <div class="boxnav" style="height: 117px;">
+            <div style="width: 100%; height: 140px;" id="echart8"></div>
           </div>
         </div>
         <!-- 年龄分布 -->
-        <div class="box l-box"
-             style="margin-left:1%; width:49%; float: right;">
+        <div class="box l-box" style="margin-left:1%; width:49%; float: right;">
           <div class="tit">年龄分布</div>
-          <div class="boxnav"
-               style="height: 117px;">
-            <div style="width: 100%; height: 140px"
-                 id="echart9"></div>
+          <div class="boxnav" style="height: 117px;">
+            <div style="width: 100%; height: 140px" id="echart9"></div>
           </div>
         </div>
         <!-- 年龄分布 -->
-        <div class="box l-box"
-        style="margin-right:1%; width:49%">
+        <div class="box l-box" style="margin-right:1%; width:49%">
           <div class="tit">学历分布</div>
-          <div class="boxnav"
-               style="height: 117px;">
-            <div style="width: 100%; height: 140px"
-                 id="echart10"></div>
+          <div class="boxnav" style="height: 117px;">
+            <div style="width: 100%; height: 140px" id="echart10"></div>
           </div>
         </div>
         <!-- 职称分布 -->
-        <div class="box l-box"
-        style="margin-left:1%; width:49%; float: right;">
+        <div class="box l-box" style="margin-left:1%; width:49%; float: right;">
           <div class="tit">职称分布</div>
-          <div class="boxnav"
-               style="height: 117px;">
-            <div style="width: 100%; height: 140px"
-                 id="echart11"></div>
+          <div class="boxnav" style="height: 117px;">
+            <div style="width: 100%; height: 140px" id="echart11"></div>
 
           </div>
         </div>
-<!-- 级别分布 -->
-<div class="box"
-             style="overflow: hidden;">
+        <!-- 级别分布 -->
+        <div class="box" style="overflow: hidden;">
           <div class="tit">无党派级别分布(总数:27)</div>
-          <div class="boxnav"
-               style="height: 150px">
-            <div style="float: left; width: 450px; height: 140px"
-                 id="echart12"></div>
+          <div class="boxnav" style="height: 150px">
+            <div style="float: left; width: 450px; height: 140px" id="echart12"></div>
           </div>
         </div>
       </li>
       <!-- 地图 -->
       <li style="width: 42%">
         <div class="box">
-          <div class="boxnav mapc"
-               style="height: 648px; position: relative">
-            <div class="map"
-                 id="map">
+          <div class="boxnav mapc" style="height: 648px; position: relative">
+            <div class="map" id="map">
               <SchoolMap />
             </div>
           </div>
         </div>
       </li>
       <!-- 无党派和留学归国人员 -->
-      <el-menu class="el-menu-demo"
-               mode="horizontal"
-               text-color="#fff"
-               active-text-color="#f4e925"
-               default-active="1">
-        <el-menu-item index="3">留学归国人员(总数:{{sum3}})</el-menu-item>
+      <el-menu class="el-menu-demo" mode="horizontal" text-color="#fff" active-text-color="#f4e925" default-active="1">
+        <el-menu-item index="3">留学归国人员(总数:{{ sum3 }})</el-menu-item>
       </el-menu>
       <!-- 性别分布 -->
-      <li style="width: 14.5%"
-          class="right">
+      <li style="width: 14.5%" class="right">
         <div class="box">
           <div class="tit">性别分布</div>
-          <div class="boxnav"
-               style="height: 150px">
-            <div style="float: left; width: 100%; height: 140px"
-                 id="echart5"></div>
+          <div class="boxnav" style="height: 150px">
+            <div style="float: left; width: 100%; height: 140px" id="echart5"></div>
           </div>
         </div>
       </li>
       <!-- 年龄分布 -->
-      <li style="width: 14.5%"
-          class="right">
+      <li style="width: 14.5%" class="right">
         <div class="box">
           <div class="tit">年龄分布</div>
-          <div class="boxnav"
-               style="height: 150px">
-            <div style="float: left; width: 100%; height: 140px"
-                 id="echart6"></div>
+          <div class="boxnav" style="height: 150px">
+            <div style="float: left; width: 100%; height: 140px" id="echart6"></div>
           </div>
         </div>
       </li>
       <!-- 学历分布 -->
-      <li style="width: 14.5%"
-          class="right">
+      <li style="width: 14.5%" class="right">
         <div class="box">
           <div class="tit">学历分布</div>
-          <div class="boxnav"
-               style="height: 150px">
-            <div style="float: left; width: 100%; height: 140px"
-                 id="echart4"></div>
+          <div class="boxnav" style="height: 150px">
+            <div style="float: left; width: 100%; height: 140px" id="echart4"></div>
           </div>
         </div>
       </li>
       <!-- 职称分布 -->
-      <li style="width: 14.5%"
-          class="right">
+      <li style="width: 14.5%" class="right">
         <div class="box">
           <div class="tit">职称分布</div>
-          <div class="boxnav"
-               style="height: 150px">
-            <div style="float: left; width: 100%; height: 140px"
-                 id="echart7"></div>
+          <div class="boxnav" style="height: 150px">
+            <div style="float: left; width: 100%; height: 140px" id="echart7"></div>
           </div>
         </div>
       </li>
-      <li style="width: 29%"
-          class="right">
-        
+      <li style="width: 29%" class="right">
+
         <!-- 留学时间分布 -->
-        <div class="box"
-             >
+        <div class="box">
           <div class="tit">留学时间分布</div>
-          <div class="boxnav"
-               style="height: 150px">
-            <div style="float:left; width: 450px; height: 140px"
-                 id="echart13"></div>
+          <div class="boxnav" style="height: 150px">
+            <div style="float:left; width: 450px; height: 140px" id="echart13"></div>
           </div>
         </div>
       </li>
@@ -153,7 +113,7 @@ import SchoolMap from './schoolMap.vue';
 
 export default {
   name: "frontParty",
-  data () {
+  data() {
     return {
       sum1: "",
       sum2: "",
@@ -206,145 +166,145 @@ export default {
     };
   },
   watch: {
-    $route (to, from) {
+    $route(to, from) {
       window.location.reload
     },
     // 无党派和留学归国人员学历分布
     echart4data: {
       deep: true,
-      handler (newVal, oldVal) {
+      handler(newVal, oldVal) {
         this.init_myChart4();
       },
     },
     echart4dataAxis: {
       deep: true,
-      handler () {
+      handler() {
         this.init_myChart4();
       }
     },
     //无党派和留学归国人员性别分布
     echart5data: {
       deep: true,
-      handler (newVal, oldVal) {
+      handler(newVal, oldVal) {
         this.init_myChart5();
       }
     },
     echart5dataAxis: {
       deep: true,
-      handler () {
+      handler() {
         this.init_myChart5();
       }
     },
     // 无党派和留学归国人员年龄分布
     echart6data: {
       deep: true,
-      handler (newVal, oldVal) {
+      handler(newVal, oldVal) {
         this.init_myChart6();
       }
     },
     echart6dataAxis: {
       deep: true,
-      handler () {
+      handler() {
         this.init_myChart6();
       }
     },
     // 无党派和留学归国人员职称分布
     echart7data: {
       deep: true,
-      handler (newVal, oldVal) {
+      handler(newVal, oldVal) {
         this.init_myChart7();
       }
     },
     echart7dataAxis: {
       deep: true,
-      handler () {
+      handler() {
         this.init_myChart7();
       }
     },
     //知联会性别分布
     echart8data: {
       deep: true,
-      handler (newVal, oldVal) {
+      handler(newVal, oldVal) {
         this.init_myChart8();
       }
     },
     echart8dataAxis: {
       deep: true,
-      handler () {
+      handler() {
         this.init_myChart8();
       }
     },
     //知联会年龄分布
     echart9data: {
       deep: true,
-      handler (newVal, oldVal) {
+      handler(newVal, oldVal) {
         this.init_myChart9();
       }
     },
     echart9dataAxis: {
       deep: true,
-      handler () {
+      handler() {
         this.init_myChart9();
       }
     },
     //知联会学历分布
     echart10data: {
       deep: true,
-      handler (newVal, oldVal) {
+      handler(newVal, oldVal) {
         this.init_myChart10();
       }
     },
     echart10dataAxis: {
       deep: true,
-      handler () {
+      handler() {
         this.init_myChart10();
       }
     },
     // 知联会职称分布
     echart11data: {
       deep: true,
-      handler (newVal, oldVal) {
+      handler(newVal, oldVal) {
         this.init_myChart11();
       }
     },
     echart11dataAxis: {
       deep: true,
-      handler () {
+      handler() {
         this.init_myChart11();
       }
     },
     // 级别分布
     echart12data: {
       deep: true,
-      handler (newVal, oldVal) {
+      handler(newVal, oldVal) {
         this.init_myChart12();
       }
     },
     echart12dataAxis: {
       deep: true,
-      handler () {
+      handler() {
         this.init_myChart12();
       }
     },
     // 留学时间分布
     echart13data: {
       deep: true,
-      handler (newVal, oldVal) {
+      handler(newVal, oldVal) {
         this.init_myChart13();
       }
     },
     echart13dataAxis: {
       deep: true,
-      handler () {
+      handler() {
         this.init_myChart13();
       }
     },
   },
-  created () {
+  created() {
     window.sessionStorage.removeItem("department");
     this.overseasSort()
   },
-  mounted () {
+  mounted() {
     this.init_myChart8();
     this.init_myChart9();
     this.init_myChart10();
@@ -380,13 +340,14 @@ export default {
   },
   methods: {
     //对单一学院进行切换
-    frontParty (department) {
+    frontParty(department) {
       callDepartment(department).then(res => {
         let result = res
+        console.log("result", result);
         //无党派、知联会、留学归国人员各学院人数
-        this.sum1=res.total1.t.count
-        this.sum2=res.total2.t.count
-        this.sum3=res.total3.t.count
+        this.sum1 = res.total1.t.count
+        this.sum2 = res.total2.t.count
+        this.sum3 = res.total3.t.count
         //无党派和留学归国人员学历分布
         this.echart4data = []
         this.echart4dataAxis = []
@@ -446,8 +407,7 @@ export default {
         this.echart12dataAxis = []
         this.echart12List = result.res12.t
         this.echart12List.forEach((item) => this.echart12data.push(item.count))
-        this.echart12List.forEach((item)=> this.echart12dataAxis.push(item.LEVEL))
-        console.log("1212121212",result)
+        this.echart12List.forEach((item) => this.echart12dataAxis.push(item.LEVEL))
         //留学时间分布
         this.echart13data = []
         this.echart13dataAxis = []
@@ -457,7 +417,7 @@ export default {
       })
     },
     //对总体进行切换
-    async overseasSort () {
+    async overseasSort() {
       this.department = window.sessionStorage.getItem("department")
 
       if (this.department) {
@@ -467,12 +427,12 @@ export default {
         let { data: res2 } = await this.$axios.post("http://localhost:9107/service/servicedecisioncenter/WuDangPaiRenYuan/querySexOfAboard")
         let { data: res3 } = await this.$axios.post("http://localhost:9107/service/servicedecisioncenter/WuDangPaiRenYuan/queryAgeOfAboard")
         let { data: res4 } = await this.$axios.post("http://localhost:9107/service/servicedecisioncenter/WuDangPaiRenYuan/queryTitleOfAboard")
-        let { data: res12} = await this.$axios.post(`http://localhost:9107/service/servicedecisioncenter/WuDangPaiRenYuan/queryWuDangPaiLevel`)
+        let { data: res12 } = await this.$axios.post(`http://localhost:9107/service/servicedecisioncenter/WuDangPaiRenYuan/queryWuDangPaiLevel`)
         let { data: res13 } = await this.$axios.post("http://localhost:9107/service/servicedecisioncenter/WuDangPaiRenYuan/queryTimeOfAboard")
-         //统计知联会和无党派、留学归国人数的接口
-         let { data: total1} = await this.$axios.post(`http://localhost:9107/service/servicedecisioncenter/WuDangPaiRenYuan/queryZhiLianHuiCount`)
-        let {data : total2} = await this.$axios.post(`http://localhost:9107/service/servicedecisioncenter/WuDangPaiRenYuan/queryWuDangPaiCount`)
-        let { data: total3} = await this.$axios.post(`http://localhost:9107/service/servicedecisioncenter/WuDangPaiRenYuan/queryCountOfAbroad`)
+        //统计知联会和无党派、留学归国人数的接口
+        let { data: total1 } = await this.$axios.post(`http://localhost:9107/service/servicedecisioncenter/WuDangPaiRenYuan/queryZhiLianHuiCount`)
+        let { data: total2 } = await this.$axios.post(`http://localhost:9107/service/servicedecisioncenter/WuDangPaiRenYuan/queryWuDangPaiCount`)
+        let { data: total3 } = await this.$axios.post(`http://localhost:9107/service/servicedecisioncenter/WuDangPaiRenYuan/queryCountOfAbroad`)
         this.sum1 = total1.t.count
         this.sum2 = total2.t.count
         this.sum3 = total3.t.count
@@ -483,11 +443,11 @@ export default {
         this.echart7List.forEach((item) => this.echart7data.push(item.count))
         this.echart7List.forEach((item) => this.echart7dataAxis.push(item.LEVEL))
         //无党派和留学归国人员学历分布
-         this.echart4data = []
-         this.echart4dataAxis = []
-         this.echart4List = res1.t
-         this.echart4List.forEach((item) => this.echart4data.push(item.total))
-         this.echart4List.forEach((item) => this.echart4dataAxis.push(item.degree))
+        this.echart4data = []
+        this.echart4dataAxis = []
+        this.echart4List = res1.t
+        this.echart4List.forEach((item) => this.echart4data.push(item.total))
+        this.echart4List.forEach((item) => this.echart4dataAxis.push(item.degree))
         // alert(res4.t[0].count)
 
         //无党派和留学归国人员性别分布
@@ -498,11 +458,11 @@ export default {
         this.echart5List.forEach((item) => this.echart5dataAxis.push(item.sex))
 
         //无党派和留学归国人员年龄分布
-         this.echart6data = []
-         this.echart6dataAxis = []
-         this.echart6List = res3.t
-         this.echart6data = res3.t.value
-         this.echart6dataAxis = res3.t.age
+        this.echart6data = []
+        this.echart6dataAxis = []
+        this.echart6List = res3.t
+        this.echart6data = res3.t.value
+        this.echart6dataAxis = res3.t.age
         //留学时间分布
         this.echart13data = []
         this.echart13dataAxis = []
@@ -514,9 +474,9 @@ export default {
         this.echart12dataAxis = []
         this.echart12List = res12.t
         this.echart12List.forEach((item) => this.echart12data.push(item.count))
-        this.echart12List.forEach((item)=> this.echart12dataAxis.push(item.LEVEL))
+        this.echart12List.forEach((item) => this.echart12dataAxis.push(item.LEVEL))
 
-        console.log("13",this.echart13List)
+        console.log("13", this.echart13List)
 
         window.sessionStorage.setItem("sort", "知联会");
         this.sort = window.sessionStorage.getItem("sort")
@@ -549,69 +509,69 @@ export default {
       }
     },
 
-  
+
     //echarts们
-    init_myChart7 () {
+    init_myChart7() {
       // 无党派和留学归国人员职称分布
       var myChart7 = this.$echarts.init(document.getElementById("echart7"));
-     var option = {
-  tooltip: {
-    trigger: "item",
-    formatter: "{a} <br/>{b}: {c} ({d}%)",
-  },
-  legend: {
-    orient: "vertical",
-    top: "0%",
-    left: "0",
-    itemWidth: 10,
-    itemHeight: 10,
-    textStyle: {
-      color: "rgba(255,255,255,.5)",
-      fontSize: "10",
-    },
-  },
-  series: [
-    {
-      name: "职称分布",
-      type: "pie",
-      radius: ["0%", "75%"], // 设置饼图的内外半径
-      center: ["70%", "46%"],
-      roseType: "radius", // 设置为基础南丁格尔玫瑰图
-      color: [
-        "#e58c00",
-        "#008080",
-        "#eb295b",
-        "#9932CC",
-        "#37A2FF",
-        "#00DDFF",
-        "#62c98d",
-        "#2f89cf",
-        "#4cb9cf",
-        "#e0c828",
-        
-      ],
-      label: { show: false, position: "center" },
-      emphasis: {
-        scale: true,
-        scaleSize: 7,
-        label: {
-          show: true,
-          fontSize: "10",
-          fontWeight: "bold",
-          color: "white",
+      var option = {
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b}: {c} ({d}%)",
         },
-      },
-      labelLine: { show: false },
-      data: [
-        { value: this.echart7data[0], name: this.echart7dataAxis[0] },
+        legend: {
+          orient: "vertical",
+          top: "0%",
+          left: "0",
+          itemWidth: 10,
+          itemHeight: 10,
+          textStyle: {
+            color: "rgba(255,255,255,.5)",
+            fontSize: "10",
+          },
+        },
+        series: [
+          {
+            name: "职称分布",
+            type: "pie",
+            radius: ["0%", "75%"], // 设置饼图的内外半径
+            center: ["70%", "46%"],
+            roseType: "radius", // 设置为基础南丁格尔玫瑰图
+            color: [
+              "#e58c00",
+              "#008080",
+              "#eb295b",
+              "#9932CC",
+              "#37A2FF",
+              "#00DDFF",
+              "#62c98d",
+              "#2f89cf",
+              "#4cb9cf",
+              "#e0c828",
+
+            ],
+            label: { show: false, position: "center" },
+            emphasis: {
+              scale: true,
+              scaleSize: 7,
+              label: {
+                show: true,
+                fontSize: "10",
+                fontWeight: "bold",
+                color: "white",
+              },
+            },
+            labelLine: { show: false },
+            data: [
+              { value: this.echart7data[0], name: this.echart7dataAxis[0] },
               { value: this.echart7data[1], name: this.echart7dataAxis[1] },
               { value: this.echart7data[2], name: this.echart7dataAxis[2] },
               { value: this.echart7data[3], name: this.echart7dataAxis[3] },
               { value: this.echart7data[4], name: this.echart7dataAxis[4] },
-      ]
-    }
-  ]
-};
+            ]
+          }
+        ]
+      };
 
 
       //学生年级分布
@@ -621,7 +581,7 @@ export default {
       });
     },
     // 无党派和留学归国人员年龄分布
-    init_myChart6 () {
+    init_myChart6() {
       let data = this.echart6data;
       let dataAxis = [
         "35岁以下",
@@ -714,7 +674,7 @@ export default {
     },
 
     // 无党派和留学归国人员学历分布
-    init_myChart4 () {
+    init_myChart4() {
       let data = this.echart4data
       let dataAxis = this.echart4dataAxis
       var myChart4 = this.$echarts.init(document.getElementById("echart4"));
@@ -740,7 +700,7 @@ export default {
             type: "pie",
             radius: "75%",
             center: ["70%", "45%"],
-          
+
             label: { show: false, position: "center" },
             emphasis: {
               scale: true,
@@ -769,7 +729,7 @@ export default {
       });
     },
     //无党派和留学归国人员性别分布
-    init_myChart5 () {
+    init_myChart5() {
       let data = this.echart5data
       let dataAxis = this.echart5dataAxis
       var myChart5 = this.$echarts.init(document.getElementById("echart5"));
@@ -837,9 +797,9 @@ export default {
             },
             itemStyle: {
               color: this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
-               { offset: 0, color: "white" },
-  { offset: 0.5, color: "#00e5e5" },
-  { offset: 1, color: "#00bfbf" }
+                { offset: 0, color: "white" },
+                { offset: 0.5, color: "#00e5e5" },
+                { offset: 1, color: "#00bfbf" }
               ]),
               barBorderRadius: [5, 5, 0, 0],
             },
@@ -860,7 +820,7 @@ export default {
       });
     },
     // 知联会性别分布
-    init_myChart8 () {
+    init_myChart8() {
       let data = this.echart8data;
       let dataAxis = this.echart8dataAxis;
       var myChart8 = this.$echarts.init(document.getElementById("echart8"));
@@ -928,9 +888,9 @@ export default {
             },
             itemStyle: {
               color: this.$echarts.graphic.LinearGradient(0, 0, 0, 1, [
-              { offset: 0, color: "white" },
-  { offset: 0.5, color: "#00e5e5" },
-  { offset: 1, color: "#00bfbf" }
+                { offset: 0, color: "white" },
+                { offset: 0.5, color: "#00e5e5" },
+                { offset: 1, color: "#00bfbf" }
               ]),
               barBorderRadius: [5, 5, 0, 0],
             },
@@ -948,7 +908,7 @@ export default {
       });
     },
     //知联会年龄分布
-    init_myChart9 () {
+    init_myChart9() {
       let data = this.echart9data;
       let dataAxis = [
         "35岁以下",
@@ -1041,7 +1001,7 @@ export default {
       });
     },
     // 知联会学历分布
-    init_myChart10 () {
+    init_myChart10() {
       let data = this.echart10data
       let dataAxis = this.echart10dataAxis
       var myChart4 = this.$echarts.init(document.getElementById("echart10"));
@@ -1067,7 +1027,7 @@ export default {
             type: "pie",
             radius: "75%",
             center: ["70%", "45%"],
-          
+
             label: { show: false, position: "center" },
             emphasis: {
               scale: true,
@@ -1096,67 +1056,67 @@ export default {
       });
     },
     // 知联会职称分布
-    init_myChart11 () {
+    init_myChart11() {
       // 无党派和留学归国人员职称分布
       var myChart7 = this.$echarts.init(document.getElementById("echart11"));
-     var option = {
-  tooltip: {
-    trigger: "item",
-    formatter: "{a} <br/>{b}: {c} ({d}%)",
-  },
-  legend: {
-    orient: "vertical",
-    top: "0%",
-    left: "0",
-    itemWidth: 10,
-    itemHeight: 10,
-    textStyle: {
-      color: "rgba(255,255,255,.5)",
-      fontSize: "10",
-    },
-  },
-  series: [
-    {
-      name: "职称分布",
-      type: "pie",
-      radius: ["0%", "75%"], // 设置饼图的内外半径
-      center: ["70%", "46%"],
-      roseType: "radius", // 设置为基础南丁格尔玫瑰图
-      color: [
-        "#e58c00",
-        "#008080",
-        "#eb295b",
-        "#9932CC",
-        "#37A2FF",
-        "#00DDFF",
-        "#62c98d",
-        "#2f89cf",
-        "#4cb9cf",
-        "#e0c828",
-        
-      ],
-      label: { show: false, position: "center" },
-      emphasis: {
-        scale: true,
-        scaleSize: 7,
-        label: {
-          show: true,
-          fontSize: "10",
-          fontWeight: "bold",
-          color: "white",
+      var option = {
+        tooltip: {
+          trigger: "item",
+          formatter: "{a} <br/>{b}: {c} ({d}%)",
         },
-      },
-      labelLine: { show: false },
-      data: [
-        { value: this.echart11data[0], name: this.echart11dataAxis[0] },
+        legend: {
+          orient: "vertical",
+          top: "0%",
+          left: "0",
+          itemWidth: 10,
+          itemHeight: 10,
+          textStyle: {
+            color: "rgba(255,255,255,.5)",
+            fontSize: "10",
+          },
+        },
+        series: [
+          {
+            name: "职称分布",
+            type: "pie",
+            radius: ["0%", "75%"], // 设置饼图的内外半径
+            center: ["70%", "46%"],
+            roseType: "radius", // 设置为基础南丁格尔玫瑰图
+            color: [
+              "#e58c00",
+              "#008080",
+              "#eb295b",
+              "#9932CC",
+              "#37A2FF",
+              "#00DDFF",
+              "#62c98d",
+              "#2f89cf",
+              "#4cb9cf",
+              "#e0c828",
+
+            ],
+            label: { show: false, position: "center" },
+            emphasis: {
+              scale: true,
+              scaleSize: 7,
+              label: {
+                show: true,
+                fontSize: "10",
+                fontWeight: "bold",
+                color: "white",
+              },
+            },
+            labelLine: { show: false },
+            data: [
+              { value: this.echart11data[0], name: this.echart11dataAxis[0] },
               { value: this.echart11data[1], name: this.echart11dataAxis[1] },
               { value: this.echart11data[2], name: this.echart11dataAxis[2] },
               { value: this.echart11data[3], name: this.echart11dataAxis[3] },
               { value: this.echart11data[4], name: this.echart11dataAxis[4] },
-      ]
-    }
-  ]
-};
+            ]
+          }
+        ]
+      };
 
 
       //学生年级分布
@@ -1166,169 +1126,169 @@ export default {
       });
     },
     // 级别分布
-//   init_myChart12() {
-//   let dataAxis = [
-//     { name: '省级', value: '11' },
-//     { name: '市级', value: '11' },
-//     { name: '校级', value: '22' }
-//   ];
-  
-//   var myChart12 = this.$echarts.init(document.getElementById("echart12"));
-  
-//   var indicatorData = dataAxis.map(function(item) {
-//     return { name: item.name };
-//   });
-  
-//   var seriesData = [
-//     {
-//       name: "级别分布",
-//       type: "radar",
-//       data: [
-//         {
-//           value: dataAxis.map(function(item) {
-//             return item.value;
-//           }),
-//           itemStyle: {
-//           color: '#91CC75'  // 将颜色设置为红色
-//         },
-//           label: {
-//             show: true,
-//             formatter: "{b} {c}",
-//             fontSize: 12,
-//             fontWeight: "bold",
-//             color: "white",
-//           },
-//         },
-//       ],
-//     },
-//   ];
-  
-//   var option = {
-   
-//     legend: {
-//       orient: "vertical",
-//       top: "0%",
-//       left: "0",
-//       itemWidth: 10,
-//       itemHeight: 10,
-//       textStyle: {
-//         color: "rgba(255,255,255,.5)",
-//         fontSize: 130,
-//       },
-//     },
-  
-//     radar: {
-//       shape: 'polygon',
-//       indicator: indicatorData,
-//       center:['50%','60%'],
-//       splitLine: {
-//     lineStyle: {
-//       color: 'gray'  // 将网格线颜色设置为红色
-//     }
-//   }
-     
-//     },
-//     series: seriesData,
-//   };
+    //   init_myChart12() {
+    //   let dataAxis = [
+    //     { name: '省级', value: '11' },
+    //     { name: '市级', value: '11' },
+    //     { name: '校级', value: '22' }
+    //   ];
 
-//   // 使用刚指定的配置项和数据显示图表
-//   option && myChart12.setOption(option);
-  
-//   window.addEventListener("resize", function() {
-//     myChart12.resize();
-//   });
-// },
-init_myChart12() {
-  let dataAxis = [
-    { name: '省级', value: '2' },
-    { name: '市级', value: '20' },
-    { name: '校级', value: '6' }
-  ];
+    //   var myChart12 = this.$echarts.init(document.getElementById("echart12"));
 
-  var myChart12 = this.$echarts.init(document.getElementById("echart12"));
+    //   var indicatorData = dataAxis.map(function(item) {
+    //     return { name: item.name };
+    //   });
 
-  var xAxisData = dataAxis.map(function(item) {
-    return item.name;
-  });
+    //   var seriesData = [
+    //     {
+    //       name: "级别分布",
+    //       type: "radar",
+    //       data: [
+    //         {
+    //           value: dataAxis.map(function(item) {
+    //             return item.value;
+    //           }),
+    //           itemStyle: {
+    //           color: '#91CC75'  // 将颜色设置为红色
+    //         },
+    //           label: {
+    //             show: true,
+    //             formatter: "{b} {c}",
+    //             fontSize: 12,
+    //             fontWeight: "bold",
+    //             color: "white",
+    //           },
+    //         },
+    //       ],
+    //     },
+    //   ];
 
-  var seriesData = [
-    {
-      type: "bar",
-      data: dataAxis.map(function(item, index) {
-        return {
-          value: item.value,
-          itemStyle: {
-            color: getColorByIndex(index) // 根据索引获取颜色
-          }
-        };
-      }),
-      label: {
-        show: true,
-        formatter: "{b} {c}",
-        fontSize: 12,
-        fontWeight: "bold",
-        color: "white",
-      },
-    },
-  ];
+    //   var option = {
 
-  var option = {
-    legend: {
-      orient: "vertical",
-      top: "0%",
-      left: "0",
-      itemWidth: 10,
-      itemHeight: 10,
-      textStyle: {
-        color: "rgba(255,255,255,.5)",
-        fontSize: 10,
-      },
-    },
-    xAxis: {
-      data: xAxisData,
-      splitLine: {
-        show: false, // 取消x轴的网格线
-      },
-      splitArea: {
-        show: false, // 取消x轴的网格区域
-      },
-    },
-    yAxis: {
-      splitLine: {
-        show: false, // 取消y轴的网格线
-      },
-      splitArea: {
-        show: false, // 取消y轴的网格区域
-      },
-    },
-    series: seriesData,
-    
-    grid: {
-      top: "10%", // 设置图表距离顶部的位置
-      left: "10%", // 设置图表距离左侧的位置
-      height: "90px", // 设置图表的高度，可以是具体数值（如 "300px"）或百分比（如 "50%"）
-    },
-  };
+    //     legend: {
+    //       orient: "vertical",
+    //       top: "0%",
+    //       left: "0",
+    //       itemWidth: 10,
+    //       itemHeight: 10,
+    //       textStyle: {
+    //         color: "rgba(255,255,255,.5)",
+    //         fontSize: 130,
+    //       },
+    //     },
 
-  // 使用刚指定的配置项和数据显示图表
-  option && myChart12.setOption(option);
+    //     radar: {
+    //       shape: 'polygon',
+    //       indicator: indicatorData,
+    //       center:['50%','60%'],
+    //       splitLine: {
+    //     lineStyle: {
+    //       color: 'gray'  // 将网格线颜色设置为红色
+    //     }
+    //   }
 
-  window.addEventListener("resize", function() {
-    myChart12.resize();
-  });
+    //     },
+    //     series: seriesData,
+    //   };
 
-  // 根据索引获取颜色函数
-  function getColorByIndex(index) {
-    var colors = ["#91CC75", "#5AB1EF", "#FFB980"]; // 指定的颜色数组
-    return colors[index % colors.length];
-  }
-}
-,
+    //   // 使用刚指定的配置项和数据显示图表
+    //   option && myChart12.setOption(option);
+
+    //   window.addEventListener("resize", function() {
+    //     myChart12.resize();
+    //   });
+    // },
+    init_myChart12() {
+      let dataAxis = [
+        { name: '省级', value: '2' },
+        { name: '市级', value: '20' },
+        { name: '校级', value: '6' }
+      ];
+
+      var myChart12 = this.$echarts.init(document.getElementById("echart12"));
+
+      var xAxisData = dataAxis.map(function (item) {
+        return item.name;
+      });
+
+      var seriesData = [
+        {
+          type: "bar",
+          data: dataAxis.map(function (item, index) {
+            return {
+              value: item.value,
+              itemStyle: {
+                color: getColorByIndex(index) // 根据索引获取颜色
+              }
+            };
+          }),
+          label: {
+            show: true,
+            formatter: "{b} {c}",
+            fontSize: 12,
+            fontWeight: "bold",
+            color: "white",
+          },
+        },
+      ];
+
+      var option = {
+        legend: {
+          orient: "vertical",
+          top: "0%",
+          left: "0",
+          itemWidth: 10,
+          itemHeight: 10,
+          textStyle: {
+            color: "rgba(255,255,255,.5)",
+            fontSize: 10,
+          },
+        },
+        xAxis: {
+          data: xAxisData,
+          splitLine: {
+            show: false, // 取消x轴的网格线
+          },
+          splitArea: {
+            show: false, // 取消x轴的网格区域
+          },
+        },
+        yAxis: {
+          splitLine: {
+            show: false, // 取消y轴的网格线
+          },
+          splitArea: {
+            show: false, // 取消y轴的网格区域
+          },
+        },
+        series: seriesData,
+
+        grid: {
+          top: "10%", // 设置图表距离顶部的位置
+          left: "10%", // 设置图表距离左侧的位置
+          height: "90px", // 设置图表的高度，可以是具体数值（如 "300px"）或百分比（如 "50%"）
+        },
+      };
+
+      // 使用刚指定的配置项和数据显示图表
+      option && myChart12.setOption(option);
+
+      window.addEventListener("resize", function () {
+        myChart12.resize();
+      });
+
+      // 根据索引获取颜色函数
+      function getColorByIndex(index) {
+        var colors = ["#91CC75", "#5AB1EF", "#FFB980"]; // 指定的颜色数组
+        return colors[index % colors.length];
+      }
+    }
+    ,
 
 
 
     // 留学时间分布
-    init_myChart13 () {
+    init_myChart13() {
       var myChart13 = this.$echarts.init(document.getElementById("echart13"));
       var option = {
         tooltip: {
@@ -1392,7 +1352,7 @@ init_myChart12() {
       });
     },
   },
-  beforeDestroy () {
+  beforeDestroy() {
     this.myChart8.clear()
     this.myChart9.clear()
     this.myChart10.clear()
@@ -1426,22 +1386,18 @@ body {
 body {
   font-size: 16px;
   background: #033c76;
-  background: radial-gradient(
-    50% 35%,
-    farthest-corner,
-    #034f8e,
-    #034987,
-    #02366d,
-    #002353
-  );
-  background: -webkit-radial-gradient(
-    50% 35%,
-    farthest-corner,
-    #034f8e,
-    #034987,
-    #02366d,
-    #002353
-  );
+  background: radial-gradient(50% 35%,
+      farthest-corner,
+      #034f8e,
+      #034987,
+      #02366d,
+      #002353);
+  background: -webkit-radial-gradient(50% 35%,
+      farthest-corner,
+      #034f8e,
+      #034987,
+      #02366d,
+      #002353);
 }
 
 html,
@@ -1493,6 +1449,7 @@ a:hover {
   color: #06c;
   text-decoration: none !important;
 }
+
 .content {
   /* background: url(../assets/img/地图界面.gif) no-repeat; */
   background: url(../assets/img/地图界面.png) no-repeat center center;
@@ -1570,9 +1527,11 @@ i {
   line-height: 40px;
   padding: 0 15px;
 }
+
 .class {
   margin-top: 100px;
 }
+
 .menu li:before,
 .menu li:after {
   position: absolute;
@@ -1635,7 +1594,7 @@ i {
   margin-right: -6px;
 }
 
-.nav1 > li {
+.nav1>li {
   padding: 0 6px;
   float: left;
 }
@@ -1646,11 +1605,13 @@ i {
   margin-bottom: 12px;
   position: relative;
 }
+
 .l-box {
   height: 189.5px;
   float: left;
   width: 100%;
 }
+
 .tit {
   padding: 10px 10px 10px 25px;
   border-bottom: 1px solid rgba(7, 118, 181, 0.7);
@@ -1693,11 +1654,11 @@ i {
   padding: 10px;
 }
 
-.nav2 > li:first-child {
+.nav2>li:first-child {
   border: none;
 }
 
-.nav2 > li {
+.nav2>li {
   float: left;
   border-left: 1px solid rgba(7, 118, 181, 0.2);
   height: 240px;

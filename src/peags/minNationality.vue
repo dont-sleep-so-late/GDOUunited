@@ -3,114 +3,83 @@
     <ul class="clearfix nav1">
       <!-- 学生 -->
       <li style="width: 22%">
-        <el-menu class="el-menu-demo"
-                 mode="horizontal"
-                 text-color="#fff"
-                 active-text-color="#f4e925">
-          <el-menu-item index="1"
-                        style="margin: 0 auto">学生少数民族分布情况(总人数:{{ sum_s }})</el-menu-item>
+        <el-menu class="el-menu-demo" mode="horizontal" text-color="#fff" active-text-color="#f4e925">
+          <el-menu-item index="1" style="margin: 0 auto">学生少数民族分布情况(总人数:{{ sum_s }})</el-menu-item>
         </el-menu>
         <!-- 学生民族分布 -->
         <div class="box">
-          <div class="tit">民族分布(民族总数:31)</div>
-          <div class="boxnav"
-               style="height: 150px">
-            <div style="float: left; width: 100%; height: 140px"
-                 id="echart3"></div>
+          <div class="tit">民族分布(民族总数:{{ sum_s_n }})</div>
+          <div class="boxnav" style="height: 150px">
+            <div style="float: left; width: 100%; height: 140px" id="echart3"></div>
           </div>
         </div>
 
         <div class="box">
           <div class="tit">性别分布</div>
-          <div class="boxnav"
-               style="height: 150px">
-            <div style="float: left; width: 100%; height: 150px"
-                 id="echart1"></div>
+          <div class="boxnav" style="height: 150px">
+            <div style="float: left; width: 100%; height: 150px" id="echart1"></div>
           </div>
         </div>
 
         <div class="box">
           <div class="tit">学院分布</div>
-          <div class="boxnav"
-               style="height: 150px">
-            <div style="float: left; width: 100%; height: 140px"
-                 id="echart2"></div>
+          <div class="boxnav" style="height: 150px">
+            <div style="float: left; width: 100%; height: 140px" id="echart2"></div>
           </div>
         </div>
       </li>
       <!-- 地图 -->
       <li style="width: 42%">
         <div class="box">
-          <div class="boxnav mapc"
-               style="height: 648px; position: relative">
-            <div class="map"
-                 id="map">
+          <div class="boxnav mapc" style="height: 648px; position: relative">
+            <div class="map" id="map">
               <SchoolMap />
             </div>
           </div>
         </div>
       </li>
       <!-- 教师 -->
-      <el-menu class="el-menu-demo"
-               mode="horizontal"
-               text-color="#fff"
-               active-text-color="#f4e925">
-        <el-menu-item index="1"
-                      style="margin: 0 auto">教师少数民族分布情况(总人数:88)</el-menu-item>
+      <el-menu class="el-menu-demo" mode="horizontal" text-color="#fff" active-text-color="#f4e925">
+        <el-menu-item index="1" style="margin: 0 auto">教师少数民族分布情况(总人数:{{ sum_t }})</el-menu-item>
       </el-menu>
-      <li style="width: 18%"
-          class="right">
+      <li style="width: 18%" class="right">
         <div class="box">
-          <div class="tit">民族分布(民族总数:19)</div>
-          <div class="boxnav"
-               style="height: 150px">
-            <div style="float: left; width: 100%; height: 140px"
-                 id="echart6"></div>
+          <div class="tit">民族分布(民族总数:{{ sum_t_n }})</div>
+          <div class="boxnav" style="height: 150px">
+            <div style="float: left; width: 100%; height: 140px" id="echart6"></div>
           </div>
         </div>
       </li>
-      <li style="width: 18%"
-          class="right">
+      <li style="width: 18%" class="right">
         <div class="box">
           <div class="tit">性别分布</div>
-          <div class="boxnav"
-               style="height: 150px">
-            <div style="float: left; width: 100%; height: 150px"
-                 id="echart5"></div>
+          <div class="boxnav" style="height: 150px">
+            <div style="float: left; width: 100%; height: 150px" id="echart5"></div>
           </div>
         </div>
       </li>
-      <li style="width: 18%"
-          class="right">
+      <li style="width: 18%" class="right">
         <div class="box">
           <div class="tit">学历分布</div>
-          <div class="boxnav"
-               style="height: 150px">
-            <div style="float: left; width: 100%; height: 150px"
-                 id="echart4"></div>
+          <div class="boxnav" style="height: 150px">
+            <div style="float: left; width: 100%; height: 150px" id="echart4"></div>
           </div>
         </div>
       </li>
 
-      <li style="width: 18%"
-          class="right">
+      <li style="width: 18%" class="right">
         <div class="box">
           <div class="tit">职称分布</div>
-          <div class="boxnav"
-               style="height: 150px">
-            <div style="float: left; width: 100%; height: 150px"
-                 id="echart8"></div>
+          <div class="boxnav" style="height: 150px">
+            <div style="float: left; width: 100%; height: 150px" id="echart8"></div>
           </div>
         </div>
       </li>
-      <li style="width: 36%"
-          class="right">
+      <li style="width: 36%" class="right">
         <div class="box">
           <div class="tit">学院分布</div>
-          <div class="boxnav"
-               style="height: 150px">
-            <div style="float: left; width: 100%; height: 140px"
-                 id="echart9"></div>
+          <div class="boxnav" style="height: 150px">
+            <div style="float: left; width: 100%; height: 140px" id="echart9"></div>
           </div>
         </div>
       </li>
@@ -134,12 +103,14 @@ SwiperCore.use([Autoplay, EffectFade, Pagination, Navigation]);
 
 export default {
   name: "minNationality",
-  data () {
+  data() {
     return {
       sum_s: "",
       sum_t: "",
-ts:'',
-ss:'',
+      sum_t_n: "",
+      sum_s_n: "",
+      ts: '',
+      ss: '',
       //echart1
       echart1List: [],
       echart1data: [],
@@ -178,49 +149,49 @@ ss:'',
       echart9dataAxis: [],
     };
   },
-  created () {
+  created() {
     this.showWorkObject();
   },
   watch: {
     echart1List: {
       deep: true,
-      handler (newVal, oldVal) {
+      handler(newVal, oldVal) {
         this.init_myChart1();
       },
     },
     echart2data: {
       deep: true,
-      handler (newVal, oldVal) {
+      handler(newVal, oldVal) {
         this.init_myChart2();
       },
     },
     echart2dataAxis: {
       deep: true,
-      handler () {
+      handler() {
         this.init_myChart2();
       },
     },
     echart3data: {
       deep: true,
-      handler (newVal, oldVal) {
+      handler(newVal, oldVal) {
         this.init_myChart3();
       },
     },
     echart3dataAxis: {
       deep: true,
-      handler () {
+      handler() {
         this.init_myChart3();
       },
     },
     echart4List: {
       deep: true,
-      handler (newVal, oldVal) {
+      handler(newVal, oldVal) {
         this.init_myChart4();
       },
     },
     echart7data: {
       deep: true,
-      handler (newVal, oldVal) {
+      handler(newVal, oldVal) {
         this.init_myChart7_1();
         this.init_myChart7_2();
         this.init_myChart7_3();
@@ -228,7 +199,7 @@ ss:'',
     },
     echart7dataAxis: {
       deep: true,
-      handler (newVal, oldVal) {
+      handler(newVal, oldVal) {
         this.init_myChart7_1();
         this.init_myChart7_2();
         this.init_myChart7_3();
@@ -237,54 +208,66 @@ ss:'',
 
     echart5data: {
       deep: true,
-      handler (newVal, oldVal) {
+      handler(newVal, oldVal) {
         this.init_myChart5();
       },
     },
     echart5dataAxis: {
       deep: true,
-      handler () {
+      handler() {
         this.init_myChart5();
       },
     },
     echart6data: {
       deep: true,
-      handler (newVal, oldVal) {
+      handler(newVal, oldVal) {
         this.init_myChart6();
       },
     },
     echart6dataAxis: {
       deep: true,
-      handler () {
+      handler() {
         this.init_myChart6();
       },
     },
     echart8List: {
       deep: true,
-      handler (newVal, oldVal) {
+      handler(newVal, oldVal) {
         this.init_myChart8();
       },
     },
     echart9List: {
       deep: true,
-      handler (newVal, oldVal) {
+      handler(newVal, oldVal) {
         this.init_myChart9();
       },
     },
     sum_t: {
       deep: true,
-      handler () {
+      handler() {
         this.sum_t;
       },
     },
     sum_s: {
       deep: true,
-      handler () {
+      handler() {
         this.sum_s;
       },
     },
+    sum_t_n: {
+      deep: true,
+      handler() {
+        this.sum_t_n;
+      },
+    },
+    sum_s_n: {
+      deep: true,
+      handler() {
+        this.sum_s_n;
+      },
+    },
   },
-  mounted () {
+  mounted() {
     this.$bus.$on("wenxue", this.minNationality); //文学与新闻传播学院党委
     this.$bus.$on("shiping", this.minNationality); //食品科技学院党委
     this.$bus.$on("qixiang", this.minNationality); //海洋与气象学院党委
@@ -306,17 +289,18 @@ ss:'',
     this.$bus.$on("jiguan", this.minNationality); //机关党委
     this.$bus.$on("tuixiu", this.minNationality); //离退休干部党委
     this.$bus.$on("jiaofu", this.minNationality); //教辅单位党委init_myChart9
-    this.init_myChart8();
     this.init_myChart1();
     this.init_myChart2();
     this.init_myChart3();
     this.init_myChart9();
 
-    //    this.init_myChart4();
+    this.init_myChart4();
     this.init_myChart6();
     this.init_myChart7_1();
     this.init_myChart7_2();
     this.init_myChart7_3();
+    this.init_myChart8();
+
     // this.init_myChart7_4();
 
     new Swiper(".scroll-container", {
@@ -332,22 +316,47 @@ ss:'',
   },
   methods: {
     //对单一学院进行切换
-    minNationality (department) {
+    minNationality(department) {
       callDepartment(department).then((res) => {
         let result = res;
+        console.log("result", result);
+        //  sum_t教师人数
+        this.sum_t = result.res4.t.total;
+        //  sum_s学生人数
+        this.sum_s = result.res6.t.total;
+
+        //  sum_t教师人数
+        this.sum_t_n = result.res9.t;
+        //  sum_s学生人数
+        this.sum_s_n = result.res4.t.total;
         //echart1
         this.echart1data = [];
         this.echart1dataAxis = [];
-        this.echart1List = result.res1.t;
+        this.echart1List = result.res8.t;
         this.echart1List.forEach((item) => this.echart1data.push(item.total));
         this.echart1List.forEach((item) =>
           this.echart1dataAxis.push(item.sex)
         );
-
+        // echart2
+        this.echart2data = [];
+        this.echart2dataAxis = [];
+        this.echart2List = result.res9.t;
+        console.log("echart2List", this.echart2List);
+        this.echart2List.map((item) => {
+          this.echart2data = JSON.parse(
+            JSON.stringify(item)
+              .replace("total", "value")
+              .replace("department", "name")
+          );
+          this.echart2dataAxis.push(this.echart2data);
+          this.echart2dataAxis = this.echart2dataAxis.filter(
+            (item) => item.value > 0
+          );
+        });
         // echart3
         this.echart3data = [];
         this.echart3dataAxis = [];
-        this.echart3List = result.res3.t;
+        this.echart3List = result.res7.t;
         this.echart3List.map((item) => {
           this.echart3data = JSON.parse(
             JSON.stringify(item)
@@ -355,7 +364,6 @@ ss:'',
               .replace("nation", "name")
           );
           this.echart3dataAxis.push(this.echart3data);
-          // console.log(this.echart3dataAxis);
           this.echart3dataAxis = this.echart3dataAxis.filter(
             (item) => item.value > 0
           );
@@ -372,6 +380,7 @@ ss:'',
         this.echart5data = [];
         this.echart5dataAxis = [];
         this.echart5List = result.res5.t;
+        console.log("echart5List", echart5List);
         this.echart5List.forEach((item) => this.echart5data.push(item.total));
         this.echart5List.forEach((item) => this.echart5dataAxis.push(item.sex));
         //echart6
@@ -385,7 +394,6 @@ ss:'',
               .replace("nation", "name")
           );
           this.echart6dataAxis.push(this.echart6data);
-          // console.log(this.echart6dataAxis);
           this.echart6dataAxis = this.echart6dataAxis.filter(
             (item) => item.value > 0
           );
@@ -399,16 +407,11 @@ ss:'',
         this.echart8List.forEach((item) =>
           this.echart8dataAxis.push(item.LEVEL)
         );
-        //  sum_t教师人数
-        this.sum_t = "";
-        this.sum_t = result.res0.t;
-        //  sum_s学生人数
-        this.sum_s = "";
-        this.sum_s = result.res10.t;
+
       });
     },
-
-    async showWorkObject () {
+    //对总体进行切换
+    async showWorkObject() {
       let { data: res1 } = await this.$axios.post(
         "http://localhost:9107/service/servicedecisioncenter/ShaoShuMinZu/queryDegree"
       );
@@ -418,7 +421,7 @@ ss:'',
       let { data: res3 } = await this.$axios.post(
         "http://localhost:9107/service/servicedecisioncenter/ShaoShuMinZu/queryNational"
       );
-      this.ss=res3.t.length
+      this.ss = res3.t.length
       //echart8
       // let  res4  = await this.$API.minNationality.abcde()
       let { data: res4 } = await this.$axios.post(
@@ -433,8 +436,7 @@ ss:'',
       let { data: res6 } = await this.$axios.post(
         "http://localhost:9107/service/servicedecisioncenter/ShaoShuMinZu/queryNationalOfStudent"
       );
-      console.log(res6.t,res3.t);
-      this.ts=res6.t.length
+      this.ts = res6.t.length
       // echart1
       let { data: res7 } = await this.$axios.post(
         "http://localhost:9107/service/servicedecisioncenter/ShaoShuMinZu/querySexOfStudent"
@@ -453,8 +455,18 @@ ss:'',
       let { data: res10 } = await this.$axios.post(
         "http://localhost:9107/service/servicedecisioncenter/ShaoShuMinZu/queryCountOfStudentByDepartment"
       );
+      let { data: res11 } = await this.$axios.post(
+        "http://localhost:9107/service/servicedecisioncenter/ShaoShuMinZu/queryNationalTotal"
+      );
+      let { data: res12 } = await this.$axios.post(
+        "http://localhost:9107/service/servicedecisioncenter/ShaoShuMinZu/queryNationalTotalOfStudent"
+      );
+      //学生少数民族总数  教师少数民族总数
       this.sum_t = res0.t;
       this.sum_s = res10.t;
+      this.sum_t_n = res11.t.total;
+      this.sum_s_n = res12.t.total;
+
       //echart1
       this.echart1List = res7.t;
       this.echart1List.forEach((item) => this.echart1data.push(item.total));
@@ -483,12 +495,10 @@ ss:'',
             .replace("nation", "name")
         );
         this.echart3dataAxis.push(this.echart3data);
-        // console.log(this.echart3dataAxis);
         this.echart3dataAxis = this.echart3dataAxis.filter(
           (item) => item.value > 0
         );
       });
-      console.log('11111', this.echart3dataAxis);
       //echart4
       this.echart4List = res1.t;
       this.echart4List.forEach((item) => this.echart4data.push(item.total));
@@ -508,7 +518,6 @@ ss:'',
             .replace("nation", "name")
         );
         this.echart6dataAxis.push(this.echart6data);
-        // console.log(this.echart6dataAxis);
         this.echart6dataAxis = this.echart6dataAxis.filter(
           (item) => item.value > 0
         );
@@ -541,7 +550,7 @@ ss:'',
       // 总数
     },
 
-    init_myChart1 () {
+    init_myChart1() {
       let data = this.echart1data;
       let dataAxis = this.echart1dataAxis;
       var myChart1 = this.$echarts.init(document.getElementById("echart1"));
@@ -628,9 +637,8 @@ ss:'',
         myChart1.resize();
       });
     },
-    init_myChart6 () {
+    init_myChart6() {
       let data = this.echart6dataAxis;
-      console.log(data);
       var myChart6 = this.$echarts.init(document.getElementById("echart6"));
       var option = {
         tooltip: {
@@ -685,12 +693,11 @@ ss:'',
       };
       //使用刚指定的配置项和数据显示图标
       option && myChart6.setOption(option);
-      console.log(option);
       window.addEventListener("resize", function () {
         myChart6.resize();
       });
     },
-    init_myChart2 () {
+    init_myChart2() {
       var myChart2 = this.$echarts.init(document.getElementById("echart2"));
       var option = {
         tooltip: {
@@ -770,7 +777,7 @@ ss:'',
       });
     },
     // 学生民族分布 
-    init_myChart3 () {
+    init_myChart3() {
       var myChart3 = this.$echarts.init(document.getElementById("echart3"));
       var option = {
         tooltip: {
@@ -845,7 +852,7 @@ ss:'',
         myChart3.resize();
       });
     },
-    init_myChart8 () {
+    init_myChart8() {
       // 成员数量echart图
       let numberChar = this.$echarts.init(document.getElementById("echart8"));
       var numberOption = {
@@ -921,7 +928,7 @@ ss:'',
             emphasis: {
               itemStyle: {},
             },
-            data: [5,24,21,2,18],
+            data: [5, 24, 21, 2, 18],
             // data: this.echart8data,
           },
         ],
@@ -931,7 +938,7 @@ ss:'',
         numberChar.resize();
       });
     },
-    init_myChart4 () {
+    init_myChart4() {
       let data = this.echart4data;
       let dataAxis = this.echart4dataAxis;
       var myChart4 = this.$echarts.init(document.getElementById("echart4"));
@@ -1018,7 +1025,7 @@ ss:'',
         myChart4.resize();
       });
     },
-    init_myChart5 () {
+    init_myChart5() {
       var myChart5 = this.$echarts.init(document.getElementById("echart5"));
       var option = {
         tooltip: {
@@ -1068,7 +1075,7 @@ ss:'',
         myChart5.resize();
       });
     },
-    init_myChart7_1 () {
+    init_myChart7_1() {
       var myChart7_1 = this.$echarts.init(document.querySelector(".main7-1"));
       //var XData=["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"];
       //var yData=[1243,2315,1164,3021,3521,4121,2001,1983,2541,2612,2331,1992];
@@ -1226,7 +1233,7 @@ ss:'',
         myChart7_1.resize();
       });
     },
-    init_myChart7_2 () {
+    init_myChart7_2() {
       var myChart7_2 = this.$echarts.init(document.querySelector(".main7-2"));
       //var XData=["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"];
       //var yData=[1243,2315,1164,3021,3521,4121,2001,1983,2541,2612,2331,1992];
@@ -1385,14 +1392,13 @@ ss:'',
         myChart7_2.resize();
       });
     },
-    init_myChart7_3 () {
+    init_myChart7_3() {
       var myChart7_3 = this.$echarts.init(document.querySelector(".main7-3"));
       //var XData=["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"];
       //var yData=[1243,2315,1164,3021,3521,4121,2001,1983,2541,2612,2331,1992];
 
       var XData = this.echart7dataAxis.slice(16, 24);
       var yData = this.echart7data.slice(16, 24);
-      console.log(XData);
       var option = {
         backgroundColor: "",
         xAxis: {
@@ -1545,7 +1551,7 @@ ss:'',
         myChart7_3.resize();
       });
     },
-    init_myChart7_4 () {
+    init_myChart7_4() {
       var myChart7_4 = this.$echarts.init(document.querySelector(".main7-4"));
       //var XData=["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"];
       //var yData=[1243,2315,1164,3021,3521,4121,2001,1983,2541,2612,2331,1992];
@@ -1706,7 +1712,7 @@ ss:'',
         myChart7_4.resize();
       });
     },
-    init_myChart9 () {
+    init_myChart9() {
       let data = this.echart9dataAxis;
 
       var myChart9 = this.$echarts.init(document.getElementById("echart9"));
@@ -1810,22 +1816,18 @@ body {
 body {
   font-size: 16px;
   background: #033c76;
-  background: radial-gradient(
-    50% 35%,
-    farthest-corner,
-    #034f8e,
-    #034987,
-    #02366d,
-    #002353
-  );
-  background: -webkit-radial-gradient(
-    50% 35%,
-    farthest-corner,
-    #034f8e,
-    #034987,
-    #02366d,
-    #002353
-  );
+  background: radial-gradient(50% 35%,
+      farthest-corner,
+      #034f8e,
+      #034987,
+      #02366d,
+      #002353);
+  background: -webkit-radial-gradient(50% 35%,
+      farthest-corner,
+      #034f8e,
+      #034987,
+      #02366d,
+      #002353);
 }
 
 html,
@@ -1877,6 +1879,7 @@ a:hover {
   color: #06c;
   text-decoration: none !important;
 }
+
 .content {
   /* background: url(../assets/img/地图界面.gif) no-repeat; */
   background: url(../assets/img/地图界面.png) no-repeat center center;
@@ -1955,9 +1958,11 @@ i {
   line-height: 40px;
   padding: 0 15px;
 }
+
 .class {
   margin-top: 100px;
 }
+
 .menu li:before,
 .menu li:after {
   position: absolute;
@@ -2020,7 +2025,7 @@ i {
   margin-right: -6px;
 }
 
-.nav1 > li {
+.nav1>li {
   padding: 0 6px;
   float: left;
 }
@@ -2074,11 +2079,11 @@ i {
   padding: 10px;
 }
 
-.nav2 > li:first-child {
+.nav2>li:first-child {
   border: none;
 }
 
-.nav2 > li {
+.nav2>li {
   float: left;
   border-left: 1px solid rgba(7, 118, 181, 0.2);
   height: 240px;

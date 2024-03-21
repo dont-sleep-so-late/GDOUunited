@@ -319,16 +319,15 @@ export default {
     minNationality(department) {
       callDepartment(department).then((res) => {
         let result = res;
-        console.log("result", result);
         //  sum_t教师人数
-        this.sum_t = result.res4.t.total;
+        this.sum_t = result.res10.t;
         //  sum_s学生人数
-        this.sum_s = result.res6.t.total;
+        this.sum_s = result.res9.t;
 
         //  sum_t教师人数
-        this.sum_t_n = result.res9.t;
+        this.sum_t_n = result.res4.t.total;
         //  sum_s学生人数
-        this.sum_s_n = result.res4.t.total;
+        this.sum_s_n = result.res6.t.total;
         //echart1
         this.echart1data = [];
         this.echart1dataAxis = [];
@@ -376,7 +375,7 @@ export default {
           this.echart4dataAxis.push(item.degree)
         );
         //echart5
-        this.echart6data = [];
+        this.echart5data = [];
         this.echart5dataAxis = [];
         this.echart5List = result.res2.t;
         this.echart5List.forEach((item) => this.echart5data.push(item.total));
@@ -401,10 +400,8 @@ export default {
         this.echart8data = [];
         this.echart8dataAxis = [];
         this.echart8List = result.res5.t;
+        this.echart8List.forEach((item) => this.echart8dataAxis.push(item.LEVEL));
         this.echart8List.forEach((item) => this.echart8data.push(item.count));
-        this.echart8List.forEach((item) =>
-          this.echart8dataAxis.push(item.LEVEL)
-        );
       });
     },
     //对总体进行切换
@@ -913,8 +910,8 @@ export default {
             emphasis: {
               itemStyle: {},
             },
-            data: [5, 24, 21, 2, 18],
-            // data: this.echart8data,
+            // data: [5, 24, 21, 2, 18],
+            data: this.echart8data,
           },
         ],
       };

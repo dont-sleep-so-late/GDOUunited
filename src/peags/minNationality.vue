@@ -296,9 +296,9 @@ export default {
 
     this.init_myChart4();
     this.init_myChart6();
-    this.init_myChart7_1();
-    this.init_myChart7_2();
-    this.init_myChart7_3();
+    // this.init_myChart7_1();
+    // this.init_myChart7_2();
+    // this.init_myChart7_3();
     this.init_myChart8();
 
     // this.init_myChart7_4();
@@ -319,16 +319,15 @@ export default {
     minNationality(department) {
       callDepartment(department).then((res) => {
         let result = res;
-        console.log("result", result);
         //  sum_t教师人数
-        this.sum_t = result.res4.t.total;
+        this.sum_t = result.res10.t;
         //  sum_s学生人数
-        this.sum_s = result.res6.t.total;
+        this.sum_s = result.res9.t;
 
         //  sum_t教师人数
-        this.sum_t_n = result.res9.t;
+        this.sum_t_n = result.res4.t.total;
         //  sum_s学生人数
-        this.sum_s_n = result.res4.t.total;
+        this.sum_s_n = result.res6.t.total;
         //echart1
         this.echart1data = [];
         this.echart1dataAxis = [];
@@ -338,21 +337,20 @@ export default {
           this.echart1dataAxis.push(item.sex)
         );
         // echart2
-        this.echart2data = [];
-        this.echart2dataAxis = [];
-        this.echart2List = result.res9.t;
-        console.log("echart2List", this.echart2List);
-        this.echart2List.map((item) => {
-          this.echart2data = JSON.parse(
-            JSON.stringify(item)
-              .replace("total", "value")
-              .replace("department", "name")
-          );
-          this.echart2dataAxis.push(this.echart2data);
-          this.echart2dataAxis = this.echart2dataAxis.filter(
-            (item) => item.value > 0
-          );
-        });
+        // this.echart2data = [];
+        // this.echart2dataAxis = [];
+        // this.echart2List = result.res9.t;
+        // this.echart2List.map((item) => {
+        //   this.echart2data = JSON.parse(
+        //     JSON.stringify(item)
+        //       .replace("total", "value")
+        //       .replace("department", "name")
+        //   );
+        //   this.echart2dataAxis.push(this.echart2data);
+        //   this.echart2dataAxis = this.echart2dataAxis.filter(
+        //     (item) => item.value > 0
+        //   );
+        // });
         // echart3
         this.echart3data = [];
         this.echart3dataAxis = [];
@@ -371,7 +369,7 @@ export default {
         //echart4
         this.echart4data = [];
         this.echart4dataAxis = [];
-        this.echart4List = result.res4.t;
+        this.echart4List = result.res1.t;
         this.echart4List.forEach((item) => this.echart4data.push(item.total));
         this.echart4List.forEach((item) =>
           this.echart4dataAxis.push(item.degree)
@@ -379,14 +377,13 @@ export default {
         //echart5
         this.echart5data = [];
         this.echart5dataAxis = [];
-        this.echart5List = result.res5.t;
-        console.log("echart5List", echart5List);
+        this.echart5List = result.res2.t;
         this.echart5List.forEach((item) => this.echart5data.push(item.total));
         this.echart5List.forEach((item) => this.echart5dataAxis.push(item.sex));
         //echart6
         this.echart6data = [];
         this.echart6dataAxis = [];
-        this.echart6List = result.res6.t;
+        this.echart6List = result.res3.t;
         this.echart6List.map((item) => {
           this.echart6data = JSON.parse(
             JSON.stringify(item)
@@ -398,16 +395,13 @@ export default {
             (item) => item.value > 0
           );
         });
-        //echart8
 
+        //echart8
         this.echart8data = [];
         this.echart8dataAxis = [];
-        this.echart8List = result.res8.t;
+        this.echart8List = result.res5.t;
+        this.echart8List.forEach((item) => this.echart8dataAxis.push(item.LEVEL));
         this.echart8List.forEach((item) => this.echart8data.push(item.count));
-        this.echart8List.forEach((item) =>
-          this.echart8dataAxis.push(item.LEVEL)
-        );
-
       });
     },
     //对总体进行切换
@@ -426,11 +420,6 @@ export default {
       // let  res4  = await this.$API.minNationality.abcde()
       let { data: res4 } = await this.$axios.post(
         "http://localhost:9107/service/servicedecisioncenter/ShaoShuMinZu/queryTitle"
-      );
-      //echart7
-      // let  res5  = await this.$API.minNationality.abc()
-      let { data: res5 } = await this.$axios.post(
-        "http://localhost:9107/service/servicedecisioncenter/ShaoShuMinZu/queryDepartment"
       );
       // echart3
       let { data: res6 } = await this.$axios.post(
@@ -526,14 +515,7 @@ export default {
       this.echart8List = res4.t;
       this.echart8List.forEach((item) => this.echart8data.push(item.count));
       this.echart8List.forEach((item) => this.echart8dataAxis.push(item.LEVEL));
-      //echart7
-      this.echart7data = [];
-      this.echart7dataAxis = [];
-      this.echart7List = res5.t;
-      this.echart7List.forEach((item) => this.echart7data.push(item.total));
-      this.echart7List.forEach((item) =>
-        this.echart7dataAxis.push(item.department)
-      );
+
       //echart9
       this.echart9List = res9.t;
       this.echart9List.map((item) => {
@@ -928,8 +910,8 @@ export default {
             emphasis: {
               itemStyle: {},
             },
-            data: [5, 24, 21, 2, 18],
-            // data: this.echart8data,
+            // data: [5, 24, 21, 2, 18],
+            data: this.echart8data,
           },
         ],
       };

@@ -17,11 +17,11 @@
         <el-form-item label="添加文件">
           <el-upload ref="upload" 
             :on-remove="handleRemove" 
-            :on-change="handleChange"
             :data="fileData" 
-            :auto-upload="false" 
+            :on-change="imgUpload" 
+            :auto-upload=false
             class="upload-demo" 
-            drag action="http://localhost:9104/servicefile/filedownload/file/upload" 
+            action="http://localhost:9104/servicefile/filedownload/file/upload" 
             multiple>
             <i class="el-icon-upload" />
             <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
@@ -78,7 +78,7 @@ export default {
       total: 0, // 数据库中的总记录数
       p:{current:1,number:8},
       dialogVisible: false,   //添加对话框显示
-      fileData: { name: '', file: '' } //文件信息
+      fileData: { name: '', file: '' }, //文件信息
     }
   },
   methods: {
@@ -98,14 +98,33 @@ export default {
         console.log('查找下载专区资源失败');
       })
     },
+    //把
+    imgUpload(file) {
+      this.fileData.file = file
+    },
     saveOrUpdate() {
       this.$refs.upload.submit()
-      this.dialogVisible=false
-      alert('添加成功')
-      this.p.current=1
+      this.dialogVisible = false
+      this.p.current = 1
+      let formData = new FormData()
+      formData.append('file', this.fileData.file)
+      formData.append('name', this.fileData.name)
+      axios.post('http://localhost:9104/servicefile/filedownload/file/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      .then(response => {
+        console.log(formData);
+        alert('success')
+      })
+      .catch(error => {
+        console.error(formData);
+        alert('fail')
+      });
       this.getDownloadList()
       this.$refs.upload.clearFiles()  //清空上一次的文件列表
-      this.fileData = { name: '', info: '' }
+      this.fileData = { name: '', info: '', imgName:'' }
     },
     // 根据id删除数据
     removeDataById(item, index) {
@@ -114,10 +133,6 @@ export default {
         this.p.current=1
         this.getDownloadList()
         })
-    },
-    handleChange(file) {
-      this.fileData.imgName = file.name
-      console.log(this.fileData);
     },
     // 文件列表移除文件时的钩子
     handleRemove(file, fileList) {

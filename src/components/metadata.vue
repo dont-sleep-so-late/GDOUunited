@@ -215,12 +215,12 @@ i {
 .head .menu .li {
   display: inline-block;
   position: relative;
-  margin: 25px 13px;
+  margin: 25px 5px;
 }
 
 .head .menu .li {
   display: block;
-  font-size: 18px;
+  font-size: 16px;
   color: #fff;
   line-height: 40px;
   padding: 0 15px;

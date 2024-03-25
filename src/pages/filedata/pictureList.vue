@@ -1,4 +1,4 @@
-1<template>
+<template>
   <div class="app-container">
     <!-- 添加按钮   v-if="hasPerm('role.add')"原先button属性"-->
     <el-button  type="primary" size="small" @click="AddPictureVisible=true">添加</el-button>

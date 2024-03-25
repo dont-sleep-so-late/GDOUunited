@@ -62,6 +62,7 @@
 </template>
 
 <script>
+import autofit from 'autofit.js';
 export default {
   name: "FileData",
   data() {
@@ -72,6 +73,9 @@ export default {
       activePath: '',
       user: '加载中...'
     }
+  },
+  beforeMount () {
+        autofit.off();
   },
   mounted() {
     this.getRole()

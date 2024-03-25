@@ -356,43 +356,10 @@
             </el-select>
           </div>
         </el-form-item>
-        <!-- 留学情况 -->
-        <!-- <el-form-item>
-          <div class="selectBox s1">
-            <span>{{ select_item[12].selectname }}</span>
-
-            <el-select v-model="select_item[12].id"
-                       :placeholder="select_item[12].selectinfo"
-                       clearable>
-              <el-option v-for="v in select_item[12].sel"
-                         :key="v.value"
-                         :label="v.label"
-                         :value="v.value" />
-            </el-select>
-          </div>
-        </el-form-item> -->
-        <!-- 留学时间 -->
-        <!-- <el-form-item>
-          <div class="selectBox s1">
-            <span>{{ select_item[16].selectname }}</span>
-
-            <el-select v-model="select_item[16].id"
-                       :placeholder="select_item[16].selectinfo"
-                       clearable>
-              <el-option v-for="v in select_item[16].sel"
-                         :key="v.value"
-                         :label="v.label"
-                         :value="v.value" />
-            </el-select>
-          </div>
-        </el-form-item> -->
+      
       </el-form>
     </div>
-    <!-- <div class="inputBox pleft1 w25rem ptop1rem i1 clear" style="width: 98%">
-      <el-input v-model="myInput.input2" placeholder="请输入备注情况" clearable @input="updateView($event)">
-        <template slot="prepend">备注</template>
-      </el-input>
-    </div> -->
+   
     <div class="foot-button pleft1 clear">
       <el-button type="primary"
                  @click="saveData">保存</el-button>
@@ -402,6 +369,7 @@
 </template>
 
 <script>
+import { getToken } from '@/utils/auth'
 import axios from 'axios'
 export default {
   name: 'AdPeopleDetail',
@@ -409,7 +377,6 @@ export default {
     return {
       imgStr: null,
       errorSrt: '',
-      file: '1',
       imageUrl: '',
       selectData: [],
       nationData: [],
@@ -489,8 +456,7 @@ export default {
         activityRod: '',
         awardRod: '',
         politicsId: '',
-        // imgUrl: '',
-        photo: ''
+      file:''
       },
 
       date_item: [
@@ -880,90 +846,57 @@ export default {
 
     saveData () {
 
-      // if (this.input_item[0].input1 === '' || this.input_item[1].input1 === '' || this.input_item[5].input1 === '' || this.date_item[0].value === ''
-      //   || this.date_item[2].value === '' || this.select_item[1].id === '' || this.select_item[3].id === ''
-      //   || this.select_item[4].id === '' || this.select_item[6].id === '' || this.select_item[7].id === '' || this.select_item[8].id === '' || this.select_item[9].id === ''
-      //   || this.select_item[10].id === '' || this.select_item[11].id === '' || this.select_item[13].id === '' || this.select_item[15].id === '') {
-      //   alert('存在必填选项未填')
-      //   return
-      // }
-      // if (this.select_item[2].id == '' && this.select_item[17].id == '') {
-      //   alert('存在必填选项未填')
-      //   return
-      // }
+   
       if (this.select_item[2].id !== '' && this.select_item[17].id !== '') {
         alert('民主党派和非民主党派不可以同时填写')
         return
       }
-      // if (this.select_item[12].id === 0 && this.select_item[16].id !== '') {
-      //   alert('未留学不可填写留学时间')
-      //   return
-      // }
-      // if (this.input_item[4].input1 === '') {
-      //   alert('存在必填选项未填')
-      //   return
-      // }
-      this.sendData.name = this.input_item[0].input1
-      this.sendData.phone = this.input_item[1].input1
-      this.sendData.nativePlace = this.input_item[4].input1
-      this.sendData.sex = this.input_item[5].input1
-      this.sendData.job = this.input_item[7].input1
-      this.sendData.birth = this.date_item[0].value
-      this.sendData.joinPartyDate = this.date_item[2].value
-      this.sendData.jobLevelId = this.select_item[0].id
-      this.sendData.nationId = this.select_item[1].id
-      this.sendData.otherPartyId = this.select_item[2].id
-      this.sendData.politicsId = this.select_item[3].id
-      this.sendData.titleId = this.select_item[4].id
-      this.sendData.areaId = this.select_item[6].id
-      this.sendData.bachelorId = this.select_item[7].id
-      this.sendData.departmentId = this.select_item[8].id
-      this.sendData.currentPositionId = this.select_item[9].id
-      this.sendData.fulltimedegreeId = this.select_item[10].id
-      this.sendData.politicalPositionId = this.select_item[11].id
-      // this.sendData.isAbroad = this.select_item[12].id
-      this.sendData.organizationId = this.select_item[13].id
-      this.sendData.campusId = this.select_item[15].id
-      // this.sendData.abroadTimeId = this.select_item[16].id
-      this.sendData.partyId = this.select_item[17].id
-      this.sendData.photo = this.file
-      this.sendData.positionAxis = this.input_item[8].inputname
-      this.sendData.activeAxis = this.input_item[9].inputname
-      this.sendData.awardAxis = this.input_item[10].inputname
-      // axios.post(`http://localhost:9106/service/renwuku/addPeople`, this.sendData).then(res => {
-      //   console.log(res);
-      // })
-          axios.interceptors.request.use(config => {
-            if (config.method === 'post') {
-              delete config.headers['Content-Type']; // 或者将其设置为null
-            }
-            return config;
-            }, error => {
-            return Promise.reject(error);
-               } );
+      
+  var formData = new FormData();
+  formData.append('name', this.input_item[0].input1);
+  formData.append('phone', this.input_item[1].input1);
+  formData.append('nativePlace', this.input_item[4].input1);
+  formData.append('sex', this.input_item[5].input1);
+  formData.append('job', this.input_item[7].input1);
+  formData.append('birth', this.date_item[0].value);
+  formData.append('joinPartyDate', this.date_item[2].value);
+  formData.append('jobLevelId', this.select_item[0].id);
+  formData.append('nationId', this.select_item[1].id);
+  formData.append('otherPartyId', this.select_item[2].id);
+  formData.append('politicsId', this.select_item[3].id);
+  formData.append('titleId', this.select_item[4].id);
+  formData.append('areaId', this.select_item[6].id);
+  formData.append('bachelorId', this.select_item[7].id);
+  formData.append('departmentId', this.select_item[8].id);
+  formData.append('currentPositionId', this.select_item[9].id);
+  formData.append('fulltimedegreeId', this.select_item[10].id);
+  formData.append('politicalPositionId', this.select_item[11].id);
+  formData.append('organizationId', this.select_item[13].id);
+  formData.append('campusId', this.select_item[15].id);
+  formData.append('partyId', this.select_item[17].id);
+  formData.append('photo', this.file);
+  formData.append('positionAxis', this.input_item[8].inputname);
+  formData.append('activeAxis', this.input_item[9].inputname);
+  formData.append('awardAxis', this.input_item[10].inputname);
 
-      this.$axios
-        .post(
-          `http://localhost:9106/service/renwuku/addPeople`, this.sendData, { headers: { 'Content-Type': 'multipart/form-data;----ba77f35b192c8918628309c77e6add06' } }
-        )
-        .then(res => {
-          console.log(res);
-          console.log(res.t);
-          console.log(res.data);
-          console.log(this.file);
-          alert('添加成功！')
-          // 回到列表页面，路由跳转
-          console.log(this.file);
-          // this.$router.push({ path: '/2-3' })
-        }).catch(err => {
-          console.log("请求失败", err);
-        })
-      // this.$axios({
-      //   methods: 'POST',
-      //   url: 'http://localhost:9106/service/renwuku/addPeople',
-      //   data: this.sendData,
-      //   // headers: { 'Content-Type': 'multipart/form-data' }
-      // })
+  var xhr = new XMLHttpRequest();
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      console.log(xhr.responseText);
+      alert('添加成功！');
+    } else {
+      console.error(xhr.responseText);
+      alert('添加失败，请稍后再试！');
+    }
+  };
+  xhr.onerror = function() {
+    console.error(xhr.responseText);
+    alert('添加失败，请稍后再试！');
+  };
+
+  xhr.open('POST', 'http://localhost:9106/service/renwuku/addPeople');
+  xhr.setRequestHeader('Authorization', getToken()); // Assuming getToken() retrieves the token
+  xhr.send(formData);
     }
   }
 }

@@ -3,7 +3,7 @@
   <div class="app-container">
     <!-- 添加按钮 -->
     <el-button type="primary" size="small" @click="dialogVisible=true">添加</el-button>
-
+    <el-button type="primary" size="small" @click="getDownloadList()">刷新</el-button>
     <!-- 添加对话框 -->
     <el-dialog title="添加" :visible.sync="dialogVisible" width="65%" :show-close="false">
       <h2 style="text-align: center">添加文件</h2>
@@ -17,11 +17,13 @@
         <el-form-item label="添加文件">
           <el-upload ref="upload" 
             :on-remove="handleRemove" 
-            :on-change="handleChange"
             :data="fileData" 
+            :on-change="imgUpload" 
+            :before-upload="async () => await this.getToken()"
+            :headers="{'Authorization':this.token}"
             :auto-upload="false" 
             class="upload-demo" 
-            drag action="http://localhost:9104/servicefile/filedownload/file/upload" 
+            action="http://localhost:9104/servicefile/filedownload/file/upload" 
             multiple>
             <i class="el-icon-upload" />
             <div class="el-upload__text">将文件拖到此处，或<em>点击上传</em></div>
@@ -38,7 +40,7 @@
     </el-dialog>
 
     <!-- 文件列表 -->
-    <el-table :data="list" :border=true style="width:100%;marginTop:15px">
+    <el-table :data="list" :border=true style="width:100%;margin-top:15px">
 
       <el-table-column label="序号" width="150" align="center">
         <template slot-scope="scope">
@@ -69,6 +71,7 @@
 </template>
 
 <script>
+import { getToken } from '@/utils/auth'
 import axios from 'axios';
 export default {
   name:"DownloadList",
@@ -78,7 +81,7 @@ export default {
       total: 0, // 数据库中的总记录数
       p:{current:1,number:8},
       dialogVisible: false,   //添加对话框显示
-      fileData: { name: '', file: '' } //文件信息
+      fileData: { name: '', file: '' }, //文件信息
     }
   },
   methods: {
@@ -98,14 +101,29 @@ export default {
         console.log('查找下载专区资源失败');
       })
     },
+    async getToken() {
+    const token = await getToken();
+    if (token) {
+        this.token = token;
+        // 在这里进行后续操作，因为已经确保获取到了token
+        // 例如，您可以在这里执行上传操作或者其他操作
+    } else {
+        console.error('Failed to fetch token.');
+    }
+},
+    
+    //把
+    imgUpload(file) {
+      this.fileData.file = file
+    },
     saveOrUpdate() {
       this.$refs.upload.submit()
-      this.dialogVisible=false
-      alert('添加成功')
-      this.p.current=1
+      this.dialogVisible = false
+      this.p.current = 1
+      alert('添加成功，刷新一下')
       this.getDownloadList()
       this.$refs.upload.clearFiles()  //清空上一次的文件列表
-      this.fileData = { name: '', info: '' }
+      this.fileData = { name: '', file: ''}
     },
     // 根据id删除数据
     removeDataById(item, index) {
@@ -114,10 +132,6 @@ export default {
         this.p.current=1
         this.getDownloadList()
         })
-    },
-    handleChange(file) {
-      this.fileData.imgName = file.name
-      console.log(this.fileData);
     },
     // 文件列表移除文件时的钩子
     handleRemove(file, fileList) {

@@ -25,11 +25,15 @@
             :on-remove="handleRemove" 
             :on-change="handleChange" 
             :data="fileData" 
+            :before-upload="async () => await this.getToken()"
+            :headers="{'Authorization':this.token}"
             :auto-upload="false" 
             class="upload-demo" 
             action="http://localhost:9108/servicefile/AchievementOfPhoto/upload" 
             list-type="picture-card"
+            name="file" 
           >
+           <!-- 这个有点意思，作者tzh -->
             <i slot="default" class="el-icon-plus" />
           </el-upload>
           <!-- 图片预览放大功能 -->
@@ -88,15 +92,16 @@
 </template>
 
 <script>
+//修改者tzh 2024.3.1
 import {reqPicType,reqGetAllPic,reqGetTypePic,reqRemovePic} from "@/api/fileData/gainPic"
-
+import { getToken } from '@/utils/auth'
 export default {
   name: 'fileDataGainPic',
   data() {
     return {
       AddPictureVisible: false,//添加对话框是否打开
       dialogVisible:false,//图片预览放大功能
-      fileData: {file:"",title: "",type:""},//轮播图信息
+      fileData: {title: "",type:""},//轮播图信息
       searchTypeValue:"",//查询参数
       dialogImageUrl: "",//图片URL
       typeOption: [],
@@ -106,7 +111,8 @@ export default {
       number:4
       },
       total: 0,
-      flag:true          //分页是查询还是获取数据的标志
+      flag:true,
+      token: ''
       }
   },
   watch: {
@@ -118,6 +124,16 @@ export default {
     }
   },
   methods: {
+    async getToken() {
+    const token = await getToken();
+    if (token) {
+        this.token = token;
+        // 在这里进行后续操作，因为已经确保获取到了token
+        // 例如，您可以在这里执行上传操作或者其他操作
+    } else {
+        console.error('Failed to fetch token.');
+    }
+},
     //获取图片类型
     async getPicType() {
       try {
@@ -159,6 +175,8 @@ export default {
       this.fileData = { title: '', type: '' }     //清空上一次的图片信息
       this.dialogImageUrl=''
     },
+    //上传验证
+    
     //按类别查询图片
     async searchPic() { 
       if (this.searchTypeValue) {

@@ -79,11 +79,14 @@
 import list from "./list.vue"
 import { mapGetters, mapActions } from "vuex";
 
-
+import autofit from 'autofit.js';
 export default {
   name: "people",
   components: {
 
+  },
+  beforeMount(){
+        autofit.off();
   },
   methods: {
     logout() {

@@ -101,29 +101,14 @@ export default {
         console.log('查找下载专区资源失败');
       })
     },
-    async getToken() {
-    const token = await getToken();
-    if (token) {
-        this.token = token;
-        // 在这里进行后续操作，因为已经确保获取到了token
-        // 例如，您可以在这里执行上传操作或者其他操作
-    } else {
-        console.error('Failed to fetch token.');
-    }
-},
-    
-    //把
-    imgUpload(file) {
-      this.fileData.file = file
-    },
     saveOrUpdate() {
       this.$refs.upload.submit()
-      this.dialogVisible = false
-      this.p.current = 1
-      alert('添加成功，刷新一下')
+      this.dialogVisible=false
+      alert('添加成功')
+      this.p.current=1
       this.getDownloadList()
       this.$refs.upload.clearFiles()  //清空上一次的文件列表
-      this.fileData = { name: '', file: ''}
+      this.fileData = { name: '', info: '' }
     },
     // 根据id删除数据
     removeDataById(item, index) {

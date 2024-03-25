@@ -68,14 +68,16 @@
     </el-container>
   </el-container>
 </template>
-
 <script>
 import { Navbar, Sidebar, AppMain } from './components'
-
+import autofit from 'autofit.js';
 export default {
   name: "people",
   components: {
     Sidebar
+  },
+  beforeMount () {
+        autofit.off();
   },
   methods: {
     logout() {

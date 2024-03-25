@@ -910,6 +910,7 @@ export default {
             emphasis: {
               itemStyle: {},
             },
+            // data: [5, 24, 21, 2, 18],
             data: this.echart8data,
           },
         ],

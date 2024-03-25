@@ -1,6 +1,6 @@
 <template>
     <div class="app-container">
-        <div class="outbox">
+        <div class="outbox"  @click="search">
             <el-input placeholder="请输入内容" v-model="input" class="input-with-select">
                 <el-button slot="append" icon="el-icon-search"></el-button>
             </el-input>
@@ -10,11 +10,12 @@
                 end-placeholder="结束日期">
             </el-date-picker>
         </div>
+        <!--
         <div class="iconGroup">
             <i class="el-icon-s-tools"></i>
             <i class="el-icon-download"></i>
             <i class="el-icon-refresh-right"></i>
-        </div>
+        </div>-->
 
         <el-table :data="tableData" border style=" margin-top: 20px;">
             <el-table-column fixed prop="username" label="用户名" width="185px">
@@ -34,7 +35,7 @@
         </el-table>
 
         <el-pagination @size-change="handleSizeChange" @current-change="handleCurrentChange"
-            :current-page.sync="currentPage" :page-size="8" layout="prev, pager, next, jumper" :total="5"
+            :page-size="8" layout="prev, pager, next, jumper" :total=this.total
             style="position: relative; margin-top: 8px; left: 38%;">
         </el-pagination>
     </div>
@@ -72,14 +73,16 @@ export default {
                     }
                 }]
             },
-            value1: '',
-            value2: '',
+            value1: [new Date('2020-01-01'), new Date()],
+
+            pageMum:'1',
             tableData: [],
-            currentPage: 1
+            pageSize:'8',
+            total: 0
         };
     },
     mounted() {
-        this.inputData();
+        this. search();
     },
     methods: {
         handleClick(row) {
@@ -88,14 +91,35 @@ export default {
         handleSizeChange(val) {
             console.log(`每页 ${val} 条`);
         },
-        handleCurrentChange(val) {
-            console.log(`当前页: ${val}`);
-        },
-        inputData() {
-            axios.post(`http://localhost:9113/service/servicelog/logReport/getUserBehavior?conditions=登录&startTime=2024-02-28&endTime=2024-02-28&pageNum=8&pageSize=10`).then((res) => {
-                this.tableData = res.data.data
-            })
-        }
+        handleCurrentChange(pager) {
+      this.pageMum = pager;
+      this. search();
+    },
+        search() {
+  // 获取日期选择器的值
+  const startDate = this.formatDate(this.value1[0]);
+  const endDate = this.formatDate(this.value1[1]);
+  // 构建URL，注意日期参数使用动态获取的值
+  const url = `http://localhost:9113/service/servicelog/logReport/getUserBehavior?conditions=${this.input}&startTime=${startDate}&endTime=${endDate}&pageNum=${this.pageMum}&pageSize=${this.pageSize}`;
+
+  // 发送HTTP请求
+  axios.post(url)
+    .then((res) => {
+        this.total=res.data.data.total;
+      this.tableData = res.data.data.records;
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+},
+formatDate(date) {
+  // 格式化日期为YYYY-MM-DD格式
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  return `${year}-${month < 10 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
+}
+
     },
 };
 </script>

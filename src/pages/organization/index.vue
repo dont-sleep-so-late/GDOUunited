@@ -99,7 +99,7 @@
 
 <script>
 import axios from 'axios';
-
+import autofit from 'autofit.js';
 import { callAllMenu } from "../../api/organzationData/Department"
 import Item from '../../components/organizationLayout/components/Sidebar/Item.vue';
 export default {
@@ -124,6 +124,9 @@ export default {
       isReloadData: true,
       selectedItemIndex: '0'
     }
+  },
+  beforeMount () {
+        autofit.off();
   },
   mounted() {
     this.getRole()

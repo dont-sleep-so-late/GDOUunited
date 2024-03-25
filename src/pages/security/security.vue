@@ -38,7 +38,7 @@
 
           <el-menu-item index="3-2">
             <i class="el-icon-tickets"></i>
-            <span>用户审计行为</span>
+            <span>用户行为审计</span>
           </el-menu-item>
 
         </el-menu>
@@ -67,10 +67,14 @@
 
 
 <script>
+import autofit from 'autofit.js';
 export default {
   name: "security",
   components: {
 
+  },
+  beforeMount () {
+        autofit.off();
   },
   methods: {
     logout() {

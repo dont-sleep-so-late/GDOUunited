@@ -1,53 +1,53 @@
-import { login, logout, getInfo } from '@/api/user'
-import { getToken, setToken, removeToken } from '@/utils/auth'
+import { login, logout, getInfo } from "@/api/user";
+import { getToken, setToken, removeToken } from "@/utils/auth";
 
 const user = {
   state: {
     token: getToken(),
-    name: '',
-    user: '',
-    avatar: '',
+    name: "",
+    user: "",
+    avatar: "",
     buttons: [],
     roles: [],
   },
 
   mutations: {
     SET_TOKEN: (state, token) => {
-      state.token = token
+      state.token = token;
     },
     SET_NAME: (state, name) => {
-      state.name = name
+      state.name = name;
     },
     SET_AVATAR: (state, avatar) => {
-      state.avatar = avatar
+      state.avatar = avatar;
     },
     SET_BUTTONS: (state, buttons) => {
-      state.buttons = buttons
+      state.buttons = buttons;
     },
     SET_ROLES: (state, roles) => {
-      state.roles = roles
+      state.roles = roles;
     },
   },
 
   actions: {
     // 登录
     Login({ commit }, userInfo) {
-      const username = userInfo.username.trim()
+      const username = userInfo.username.trim();
       return new Promise((resolve, reject) => {
         login(username, userInfo.password)
           .then((response) => {
-            const data = response.data
-            const tokenStr = data.tokenHead + data.token
+            const data = response.data;
+            const tokenStr = data.tokenHead + data.token;
             // console.log('tokenStr', tokenStr)
-            setToken(tokenStr)
-            window.sessionStorage.setItem('token', tokenStr)
-            commit('SET_TOKEN', tokenStr)
-            resolve()
+            setToken(tokenStr);
+            window.sessionStorage.setItem("token", tokenStr);
+            commit("SET_TOKEN", tokenStr);
+            resolve();
           })
           .catch((error) => {
-            reject(error)
-          })
-      })
+            reject(error);
+          });
+      });
     },
     // Login({ commit }) {
     //   debugger
@@ -65,28 +65,28 @@ const user = {
           .then((response) => {
             // debugger
             // console.log('user', response)
-            const data = response.data
+            const data = response.data;
             if (data.roles && data.roles.length > 0) {
               // 验证返回的roles是否是一个非空数组
-              commit('SET_ROLES', data.roles)
+              commit("SET_ROLES", data.roles);
             } else {
-              reject('getInfo: roles must be a non-null array !')
+              reject("getInfo: roles must be a non-null array !");
             }
 
-            const buttonAuthList = []
+            const buttonAuthList = [];
             data.menus.forEach((button) => {
-              buttonAuthList.push(button)
-            })
+              buttonAuthList.push(button);
+            });
 
-            commit('SET_NAME', data.name)
-            commit('SET_AVATAR', data.avatar)
-            commit('SET_BUTTONS', buttonAuthList)
-            resolve(response)
+            commit("SET_NAME", data.name);
+            commit("SET_AVATAR", data.avatar);
+            commit("SET_BUTTONS", buttonAuthList);
+            resolve(response);
           })
           .catch((error) => {
-            reject(error)
-          })
-      })
+            reject(error);
+          });
+      });
     },
     // GetInfo({ commit }) {
     //   debugger
@@ -121,29 +121,29 @@ const user = {
       return new Promise((resolve, reject) => {
         logout(state.token)
           .then(() => {
-            commit('SET_TOKEN', '') // 清空前端vuex中存储的数据
-            commit('SET_ROLES', []) // 清空前端vuex中存储的数据
-            commit('SET_BUTTONS', [])
+            commit("SET_TOKEN", ""); // 清空前端vuex中存储的数据
+            commit("SET_ROLES", []); // 清空前端vuex中存储的数据
+            commit("SET_BUTTONS", []);
             //clearRoutes()
             console.log("clearRoutes");
-            removeToken() // 清空cookie
-            resolve()
+            removeToken(); // 清空cookie
+            resolve();
           })
           .catch((error) => {
-            reject(error)
-          })
-      })
+            reject(error);
+          });
+      });
     },
 
     // 前端 登出
     FedLogOut({ commit }) {
       return new Promise((resolve) => {
-        commit('SET_TOKEN', '')
-        removeToken()
-        resolve()
-      })
+        commit("SET_TOKEN", "");
+        removeToken();
+        resolve();
+      });
     },
   },
-}
+};
 
-export default user
+export default user;

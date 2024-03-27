@@ -9,17 +9,15 @@ import autofit from 'autofit.js';
 import AppMain from './AppMain.vue';
 import Navbar from './Navbar.vue';
 
-
 export default {
   components: { Navbar, AppMain },
   name: 'AppMainIndex',
   mounted() {
     autofit.init()
   },
-  beforeUnmount() {
+  beforeDestroy() {
     autofit.off()
   },
-
 }
 </script>
 

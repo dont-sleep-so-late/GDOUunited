@@ -51,7 +51,7 @@ export default {
     showButton() {
       this.buttons.forEach(item => {
         if (item.name == "/metadata") this.buttonList.descion = true
-        else if (item.name == "ums") this.buttonList.workplace = true
+        else if (item.name == "/workplace") this.buttonList.workplace = true
         else if (item.name == "/offerAdvice") this.buttonList.offerAdvice = true
         else if (item.name == "/workplace") this.buttonList.security = true
         else if (item.name == "/organization") this.buttonList.organizationDatabase = true

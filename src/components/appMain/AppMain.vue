@@ -2,13 +2,19 @@
   <div class="main">
     <div class="nav">
       <!-- 路由跳转 -->
+      <!-- 统战决策中心  -->
       <button v-if="this.buttonList.descion" @click="showDescion" class="descion"></button>
+      <!-- 业务工作平台 -->
       <button v-if="this.buttonList.workplace" @click="showWorkPlace" class="workplace"></button>
-      <button v-if="this.buttonList.offerAdvice" @click="showOfferAdvice" class="offerAdvice"></button>
-      <button v-if="this.buttonList.organizationDatabase" @click="showSecurity" class="security"></button>
-      <button v-if="this.buttonList.personDatabase" @click="showOrganizationDatabase"
+      <!-- <button v-if="this.buttonList.offerAdvice" @click="showOfferAdvice" class="offerAdvice"></button> -->
+      <!-- 保密检测平台 -->
+      <button v-if="this.buttonList.security" @click="showSecurity" class="security"></button>
+      <!-- 组织库 -->
+      <button v-if="this.buttonList.organizationDatabase" @click="showOrganizationDatabase"
         class="organizationDatabase"></button>
+      <!-- 人物库 -->
       <button v-if="this.buttonList.personDatabase" @click="showPersonDatabase" class="personDatabase"></button>
+      <!-- 资料库 -->
       <button v-if="this.buttonList.detailDatabase" @click="showDetailDatabase" class="detailDatabase"></button>
     </div>
   </div>
@@ -27,7 +33,6 @@ export default {
         offerAdvice: false,
         security: false,
         organizationDatabase: false,
-        personDatabase: false,
         detailDatabase: false,
       }
     }
@@ -50,19 +55,17 @@ export default {
     ...mapActions(["permission/generateRoutes"]),
     showButton() {
       this.buttons.forEach(item => {
-        if (item.name == "/metadata") this.buttonList.descion = true
-        else if (item.name == "/workplace") this.buttonList.workplace = true
-        else if (item.name == "/offerAdvice") this.buttonList.offerAdvice = true
-        else if (item.name == "/workplace") this.buttonList.security = true
-        else if (item.name == "/organization") this.buttonList.organizationDatabase = true
-        else if (item.name == "/teacher") this.buttonList.personDatabase = true
-        else if (item.name == "/filedata") this.buttonList.detailDatabase = true
+        if (item.name == "/metadata") this.buttonList.descion = true //统战决策中心
+        else if (item.name == "/workplace") this.buttonList.workplace = true //业务工作平台
+        else if (item.name == "/logdata") this.buttonList.security = true //保密检测平台
+        else if (item.name == "/organization") this.buttonList.organizationDatabase = true //组织库
+        else if (item.name == "/teacher") this.buttonList.personDatabase = true //人物库
+        else if (item.name == "/filedata") this.buttonList.detailDatabase = true //资料库
       });
       console.log(this.buttonList);
     },
     showDescion() {
       var i = 0
-      //2024/3/13改动 只判断是否为超级管理
       for (i = 0; i < this.buttons.length; i++) {
         if (this.buttons[i].name === "/metadata") {
           this.$router.push(this.buttons[i].name);
@@ -79,7 +82,7 @@ export default {
     showWorkPlace() {
       var i = 0
       for (i = 0; i < this.buttons.length; i++) {
-        if (this.buttons[i].name === "ums") {
+        if (this.buttons[i].name === "/workplace") {
           this.$router.push({ path: '/ums' });
           break;
         }
@@ -107,12 +110,12 @@ export default {
     showSecurity() {
       var i = 0
       for (i = 0; i < this.buttons.length; i++) {
-        if (this.buttons[i].name === "/workplace") {
+        if (this.buttons[i].name === "/logdata") {
           this.$router.push({ path: '/security' });
           break;
         }
         else if (i === this.buttons.length - 1) {
-          this.$alert('对不起，您没有进入业务工作平台的权限', {
+          this.$alert('对不起，您没有进入保密检测平台的权限', {
             confirmButtonText: '确定',
           });
         }
